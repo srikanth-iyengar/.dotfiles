@@ -1,0 +1,36 @@
+{
+    "java": {
+        "command": [
+            "javac ${BASE_FILE}.java",
+            "java ${BASE_FILE}"
+        ]
+    },
+    "java-io-directed": {
+        "command": [
+            "javac ${BASE_FILE}.java",
+            "java ${BASE_FILE} < in.txt > out.txt"
+        ]
+    },
+    "python": {
+        "command": [
+            "python ${BASE_FILE}.py"
+        ]
+    },
+    "python-io-directed": {
+        "command": [
+            "python ${BASE_FILE}.py < in.txt > out.txt"
+        ]
+    },
+    "cpp": {
+        "command": [
+            "g++ ${BASE_FILE}.cpp -o ${BASE_FILE}.exe",
+            "./${BASE_FILE}.exe"
+        ]
+    },
+    "cpp-io-directed": {
+        "command": [
+            "g++ ${BASE_FILE}.cpp -o ${BASE_FILE}.exe",
+            "./${BASE_FILE}.exe < in.txt > out.txt"
+        ]
+    }
+}
