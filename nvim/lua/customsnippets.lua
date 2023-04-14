@@ -9,4 +9,3 @@ ls.snippets = {
 
   }
 }
-

@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'ryanoasis/vim-devicons'
 	use 'nvim-lualine/lualine.nvim'
-	use 'Shatur/neovim-session-manager'
+	-- use 'Shatur/neovim-session-manager'
 	use 'nvim-telescope/telescope-ui-select.nvim'
 	use 'tpope/vim-commentary'
 	use 'L3MON4D3/LuaSnip'
@@ -78,4 +78,6 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
+	use "rose-pine/neovim"
+	use 'Mofiqul/dracula.nvim'
 end)
