@@ -1,0 +1,11 @@
+-- require 'plugins'
+-- require "user.keymaps"
+-- require "user.bufferline"
+-- require "user.keymaps"
+-- require "user.lualine"
+-- require "user.telescope"
+-- require "user.cmp"
+-- require "user.harpoon"
+-- require "user.custom"
+-- require "user.colorscheme"
+-- require "user.snippets"

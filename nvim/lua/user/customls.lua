@@ -2,7 +2,7 @@ local ls = require("luasnip")
 local types = require("luasnip.util.types")
 -- require("luasnip.loaders.from_vscode").lazy_load({paths="~/AppData/Local/nvim/lua/snippets"})
 -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/AppData/Local/nvim/lua/snippets"} })
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/AppData/Local/nvim/lua/snippets" } })
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/configurations/.dotfiles/nvim_snippets" } })
 ls.config.set_config{
   history=true,
   updateevents="TextChanged,TextChangedI",
