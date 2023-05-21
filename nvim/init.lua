@@ -1,7 +1,7 @@
 require 'plugins'
 require "user.keymaps"
 -- require "user.bufferline"
-require "user.lualine"
+-- require "user.lualine"
 require "user.telescope"
 require "user.cmp"
 -- require "user.harpoon"

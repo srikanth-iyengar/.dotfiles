@@ -4,17 +4,17 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	-- use 'goolord/alpha-nvim'
 	-- use 'tpope/vim-surround'
-	use 'mhinz/vim-signify'
-	use 'Yggdroot/indentLine'
+	-- use 'mhinz/vim-signify'
+	-- use 'Yggdroot/indentLine'
 	-- use 'sheerun/vim-polyglot'
 	use 'kyazdani42/nvim-web-devicons'
-	use 'akinsho/bufferline.nvim'
+	-- use 'akinsho/bufferline.nvim'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
 	-- use 'hrsh7th/nvim-compe'
 	use 'ThePrimeagen/harpoon'
 	use 'nvim-treesitter/nvim-treesitter'
-	use 'nvim-lualine/lualine.nvim'
+	-- use 'nvim-lualine/lualine.nvim'
 	-- use 'Shatur/neovim-session-manager'
 	-- use 'nvim-telescope/telescope-ui-select.nvim'
 	use 'tpope/vim-commentary'
@@ -66,8 +66,8 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
-	use "rose-pine/neovim"
+	-- use "rose-pine/neovim"
     use "ellisonleao/gruvbox.nvim"
     use "tpope/vim-fugitive"
-    use "mbbill/undotree"
+    -- use "mbbill/undotree"
 end)
