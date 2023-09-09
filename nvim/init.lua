@@ -1,13 +1,12 @@
 require 'plugins'
 require "user.keymaps"
--- require "user.bufferline"
--- require "user.lualine"
+require "user.bufferline"
 require "user.telescope"
 require "user.cmp"
--- require "user.harpoon"
 require "user.custom"
 require "user.colorscheme"
--- require "user.snippets"
+require "user.gitsigns"
+require "user.lualine"
 
 vim.opt.guicursor=""
 vim.opt.smartindent=true
@@ -35,7 +34,6 @@ function Map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 Map("n", "<leader>b", ":lua require(\"user.buildscript\").compileAndRun() <CR>")
-
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if status_ok then
     local servers = {
