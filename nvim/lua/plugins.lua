@@ -34,7 +34,6 @@ return require('packer').startup(function(use)
 	use "hrsh7th/cmp-buffer" -- buffer completions
 	use "hrsh7th/cmp-path" -- path completions
 	use "hrsh7th/cmp-cmdline" -- cmdline completions
-	use "saadparwaiz1/cmp_luasnip" -- snippet completions
 	use "hrsh7th/cmp-nvim-lsp"
 
 
@@ -67,7 +66,6 @@ return require('packer').startup(function(use)
 		}
 	}
 	-- use "rose-pine/neovim"
-    use "ellisonleao/gruvbox.nvim"
     use "tpope/vim-fugitive"
     -- Packer:
     use 'Mofiqul/vscode.nvim'-- use "mbbill/undotree"
@@ -76,4 +74,18 @@ return require('packer').startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use 'meuter/lualine-so-fancy.nvim'
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use 'nyoom-engineering/oxocarbon.nvim'
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function ()
+            require"octo".setup()
+        end
+    }
+    use 'mhartington/formatter.nvim'
+    use 'Dhanus3133/Leetbuddy.nvim'
 end)

@@ -7,6 +7,8 @@ require "user.custom"
 require "user.colorscheme"
 require "user.gitsigns"
 require "user.lualine"
+require "user.octo"
+require "user.formatter"
 
 vim.opt.guicursor=""
 vim.opt.smartindent=true

@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
@@ -74,7 +73,6 @@ keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 keymap("n", "<leader>c", ":bdelete!<CR>", opts)
 keymap("n", "<leader>g", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<A-o>", ":lua require('jdtls').organize_imports()<CR>", opts)
 
 
 
@@ -86,26 +84,3 @@ keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
 keymap("n", "gI", ":lua vim.lsp.buf.implementation()<CR>", opts)
 keymap("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>vrn", ":lua vim.lsp.buf.rename()<CR>", opts)
-keymap("i", "<C-h>", ":lua vim.lsp.buf.signature_help()<CR>", opts)
-
--- Session manager
-keymap("n", "<leader>3", ":SessionManager save_current_session<CR>", opts)
-keymap("n", "<leader>2", ":SessionManager load_session<CR>", opts)
-keymap("n", "<leader>1", ":SessionManager delete_session<CR>", opts)
-
-
---Terminal
--- keymap("n", "<A-i>", ":lua require('term_manager').setup()<CR>", opts)
--- keymap("n", "<A-1>", ":lua require('term_manager').toggle(1)<CR>", opts)
--- keymap("n", "<A-2>", ":lua require('term_manager').toggle(2)<CR>", opts)
--- keymap("n", "<A-3>", ":lua require('term_manager').toggle(3)<CR>", opts)
--- keymap("n", "<A-4>", ":lua require('term_manager').toggle(4)<CR>", opts)
--- keymap("x", "<A-1>", ":'<,'>FloatermSend --name=terminal1<CR>", opts)
--- keymap("x", "<A-2>", ":'<,'>FloatermSend --name=terminal2<CR>", opts)
--- keymap("x", "<A-3>", ":'<,'>FloatermSend --name=terminal3<CR>", opts)
--- keymap("x", "<A-4>", ":'<,'>FloatermSend --name=terminal4<CR>", opts)
--- keymap("n", "<leader>l1", ":%FloatermSend --name=terminal1<CR>", opts)
--- keymap("n", "<leader>l2", ":%FloatermSend --name=terminal1<CR>", opts)
--- keymap("n", "<leader>l3", ":%FloatermSend --name=terminal1<CR>", opts)
--- keymap("n", "<leader>l4", ":%FloatermSend --name=terminal1<CR>", opts)
-
