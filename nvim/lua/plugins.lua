@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
 	use "dstein64/vim-startuptime"
 	-- use 'mbbill/undotree'
 
-	-- use 'sainnhe/gruvbox-material'
+	use 'sainnhe/gruvbox-material'
 
 	-- nvim jdtls
 
@@ -88,4 +88,5 @@ return require('packer').startup(function(use)
     }
     use 'mhartington/formatter.nvim'
     use 'Dhanus3133/Leetbuddy.nvim'
+    use 'projekt0n/caret.nvim'
 end)

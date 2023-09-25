@@ -1,5 +1,4 @@
 local augroup = vim.api.nvim_create_augroup
-srikanth = augroup('177Srikanth', {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
@@ -10,7 +9,7 @@ autocmd('TextYankPost', {
     callback = function ()
       vim.highlight.on_yank({
           higroup = 'IncSearch',
-          timeout = 40,
+          timeout = 60,
         })
     end
   })
