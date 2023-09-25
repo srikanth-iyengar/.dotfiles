@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,5 +122,5 @@ if [ -f '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/path.zsh.inc' ]; then . '
 if [ -f '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Fig post block. Keep at the bottom of this file.
-source ~/.dotfiles/.scripts.sh
+source ~/.scripts.sh
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

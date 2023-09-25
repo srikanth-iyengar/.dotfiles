@@ -5,7 +5,6 @@ alias tmx="tmux -u"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 . "$HOME/.cargo/env"
-source ~/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source "/home/srikanth/.gvm/scripts/gvm"
 
 # Function to activate NVM
