@@ -1,6 +1,6 @@
 
 local function transparent_background()
-    local color = "gruvbox-material"
+    local color = "vscode"
     vim.cmd.colorscheme(color)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

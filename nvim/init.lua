@@ -7,8 +7,7 @@ require "user.custom"
 require "user.colorscheme"
 require "user.gitsigns"
 require "user.lualine"
--- require "user.octo"
-require "user.formatter"
+-- require "user.formatter"
 require "user.treesitter"
 
 vim.opt.guicursor=""
@@ -29,13 +28,6 @@ vim.opt.expandtab=true
 vim.opt.rnu = true
 vim.opt.nu = true
 
-function Map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if status_ok then
     local servers = {

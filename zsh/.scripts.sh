@@ -1,12 +1,18 @@
 #!/bin/zsh
+
+# My custom alias
 alias vim="nvim"
 alias tmx="tmux -u"
 
+# SDKMAN conf
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-. "$HOME/.cargo/env"
-source "/home/srikanth/.gvm/scripts/gvm"
 
+# Cargo thing
+. "$HOME/.cargo/env"
+
+# Golang version manager
+source "/home/srikanth/.gvm/scripts/gvm"
 # Function to activate NVM
 activate_nvm() {
     export NVM_DIR="$HOME/.nvm"
@@ -32,3 +38,39 @@ readmd() {
         gum format < "$1" | gum pager
     fi
 }
+
+notify() {
+    arg1="$1"
+    arg2="$2"
+    
+    code="$3"
+    msg="no msg"
+
+    if [ $code -eq 0 ]; then
+        msg="$arg1"
+    else
+        msg="$arg2"
+    fi
+    curl https://ntfy.srikanthk.tech/shell-commands -d "$msg"
+}
+
+d_hist() {
+  local commands_to_delete=("ls" "clear", "cd", "exit", "history")
+  local history_file="$HISTFILE"
+  
+  for cmd in "${commands_to_delete[@]}"; do
+    sed -i "/$cmd/d" "$history_file"
+  done
+
+  fc -R
+}
+
+enter() {
+    docker exec -i -t $1 /bin/bash
+}
+
+# Just homebrew thing
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile

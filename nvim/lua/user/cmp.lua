@@ -1,6 +1,7 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-  return
+    print("fat gaya")
+    return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
