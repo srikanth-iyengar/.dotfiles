@@ -18,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting terraform)
+plugins=(git terraform kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,11 +116,17 @@ source $ZSH/oh-my-zsh.sh
 
 # Fig post block. Keep at the bottom of this file.
 # # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/path.zsh.inc' ]; then . '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/path.zsh.inc' ]; then . '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/srikanth/ocw/cloud/gcp/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Fig post block. Keep at the bottom of this file.
 source ~/.scripts.sh
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/srikanth/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/srikanth/apps/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/srikanth/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/srikanth/apps/google-cloud-sdk/completion.zsh.inc'; fi

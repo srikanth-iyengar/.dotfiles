@@ -7,8 +7,8 @@ require "user.custom"
 require "user.colorscheme"
 require "user.gitsigns"
 require "user.lualine"
--- require "user.formatter"
 require "user.treesitter"
+require "user.lsp-config"
 
 vim.opt.guicursor=""
 vim.opt.smartindent=true
@@ -43,7 +43,7 @@ if status_ok then
         ensure_installed = servers
     }
 end
-require("nvim-tree").setup()
+-- require("nvim-tree").setup()
 vim.opt.mouse = ""
 require("mason").setup()
 local nvim_lsp = require('lspconfig')
@@ -58,4 +58,4 @@ local nvim_lsp = require('lspconfig')
 --   single_file_support = false
 -- }
 
-
+require("nvim-tree").setup()

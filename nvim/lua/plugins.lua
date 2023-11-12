@@ -4,14 +4,7 @@ return require('packer').startup(function(use)
 	use 'akinsho/bufferline.nvim'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
-	use 'ThePrimeagen/harpoon'
     use 'nvim-treesitter/nvim-treesitter'
-	use 'tpope/vim-commentary'
-	use 'L3MON4D3/LuaSnip'
-	use "dstein64/vim-startuptime"
-	use 'sainnhe/gruvbox-material'
-	use { "srikanth-iyengar/competitive-programming.nvim", as = "cp" }
-	use 'nvim-tree/nvim-tree.lua'
 	use "williamboman/mason.nvim"
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -35,11 +28,12 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
-    use 'tpope/vim-fugitive'
     use 'Mofiqul/vscode.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'meuter/lualine-so-fancy.nvim'
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-    use 'nyoom-engineering/oxocarbon.nvim'
+    use 'tpope/vim-commentary'
+    use 'tpope/vim-fugitive'
+    use {'srikanth-iyengar/competitive-programming.nvim', as = 'cp'}
+    use 'nvim-tree/nvim-tree.lua'
 end)
