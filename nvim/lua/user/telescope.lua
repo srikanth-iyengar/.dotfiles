@@ -25,40 +25,44 @@ local options = {
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
-    file_sorter = require("telescope.sorters").get_fuzzy_file,
-    file_ignore_patterns = { "node_modules", ".git", "yarn.lock" },
-    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    file_ignore_patterns = { "node_modules", ".git/", "yarn.lock" },
     path_display = { "truncate" },
     winblend = 0,
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     color_devicons = true,
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
-  extensions_list =  { },
+  extensions = {
+      fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+      }
+  },
+  pickers = {
+      find_files = {
+          previewer = false,
+          theme = "dropdown",
+      },
+      git_files = {
+          previewer = false,
+          theme = "dropdown",
+      }
+  },
 }
 
 telescope.setup(options)
-
-function load()
-  for _, ext in pairs(options.extensions_list) do
-    telescope.load_extension(ext)
-  end
-end
-load()
-
+telescope.load_extension('fzf')
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ps",
 function ()
-  builtin.grep_string({search=vim.fn.input("Grep > ")})
+  builtin.live_grep()
 end)
 
 

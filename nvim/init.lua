@@ -1,3 +1,37 @@
+vim.opt.wrap=false
+
+vim.opt.guicursor=""
+
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.smartindent = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.termguicolors = true
+
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+
+
 require 'plugins'
 require "user.keymaps"
 require "user.bufferline"
@@ -5,28 +39,11 @@ require "user.telescope"
 require "user.cmp"
 require "user.custom"
 require "user.colorscheme"
-require "user.gitsigns"
+require "user.gsigns"
 require "user.lualine"
 require "user.treesitter"
 require "user.lsp-config"
 
-vim.opt.guicursor=""
-vim.opt.smartindent=true
-vim.opt.tabstop=4
-vim.opt.softtabstop=4
-vim.opt.shiftwidth=4
-vim.opt.wrap=false
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.scrolloff=5
-vim.opt.signcolumn="yes"
-vim.opt.isfname:append("@-@")
-vim.opt.updatetime=50
-vim.opt.colorcolumn = "85"
-vim.cmd("silent set mouse-=a")
-vim.opt.expandtab=true
-vim.opt.rnu = true
-vim.opt.nu = true
 
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if status_ok then
@@ -43,19 +60,6 @@ if status_ok then
         ensure_installed = servers
     }
 end
--- require("nvim-tree").setup()
-vim.opt.mouse = ""
 require("mason").setup()
 local nvim_lsp = require('lspconfig')
--- nvim_lsp.denols.setup {
---   on_attach = on_attach,
---   root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
--- }
-
--- nvim_lsp.tsserver.setup {
---   on_attach = on_attach,
---   root_dir = nvim_lsp.util.root_pattern("package.json"),
---   single_file_support = false
--- }
-
 require("nvim-tree").setup()

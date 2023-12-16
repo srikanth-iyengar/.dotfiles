@@ -2,9 +2,10 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+keymap("", "<Space>", "<Nop>", opts)
 
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -46,41 +47,33 @@ keymap("x", "<a-k>", ":move '<-2<cr>gv-gv", opts)
 keymap("x", "<a-j>", ":move '>+1<cr>gv-gv", opts)
 keymap("x", "<C-_>", ":Commentary<CR>", opts)
 keymap("n", "<C-_>", ":Commentary<CR>", opts)
-
--- keymaps for cp
-keymap("n", ",tr", ":lua require('cp').run()<CR>", opts)
-keymap("n", ",ti", ":lua require('cp').toggle_input()<CR>", opts)
-keymap("n", ",to", ":lua require('cp').toggle_output()<CR>", opts)
-keymap("n", ",te", ":lua require('cp').toggle_error()<CR>", opts)
-keymap("n", ",fi", ":lua require('cp').focus_input()<CR>", opts)
-keymap("n", ",fo", ":lua require('cp').focus_output()<CR>", opts)
-keymap("n", ",fe", ":lua require('cp').focus_error()<CR>", opts)
-keymap("n", "<A-a>", ":lua require('cp').hide_all()<CR>", opts)
-keymap("n", "<A-t>" ,":lua require('cp').setup()<CR>", opts)
-keymap("n", "<A-d>", ":lua require('cp').destroy()<CR>", opts)
-keymap("n", "<leader>i", ":lua require('cp').change_width(5)<CR>", opts)
-keymap("n", "<leader>d", ":lua require('cp').change_width(-5)<CR>", opts)
-keymap("n", ",cp", ":lua require('cp').change_buildsystem()<CR>", opts)
-
+keymap("i", "<C-_>", "<cmd>Commentary<CR>", opts)
 
 -- keymaps from vim script
 keymap("n", "<leader>q", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>w", ":TagbarToggle<CR>", opts)
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader><leader>", ":noh<CR>", opts)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap("n", "<leader>c", ":bdelete!<CR>", opts)
 keymap("n", "<leader>g", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<A-w>", "<cmd>bdelete<CR>", opts)
 
 
 
-
--- LSP dianostics
-keymap("n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
-keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
-keymap("n", "gI", ":lua vim.lsp.buf.implementation()<CR>", opts)
-keymap("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "<leader>vrn", ":lua vim.lsp.buf.rename()<CR>", opts)
+-- keymaps for cp
+local function setup_cp()
+    keymap("n", ",tr", ":lua require('cp').run()<CR>", opts)
+    keymap("n", ",ti", ":lua require('cp').toggle_input()<CR>", opts)
+    keymap("n", ",to", ":lua require('cp').toggle_output()<CR>", opts)
+    keymap("n", ",te", ":lua require('cp').toggle_error()<CR>", opts)
+    keymap("n", ",fi", ":lua require('cp').focus_input()<CR>", opts)
+    keymap("n", ",fo", ":lua require('cp').focus_output()<CR>", opts)
+    keymap("n", ",fe", ":lua require('cp').focus_error()<CR>", opts)
+    keymap("n", "<A-a>", ":lua require('cp').hide_all()<CR>", opts)
+    keymap("n", "<A-t>" ,":lua require('cp').setup()<CR>", opts)
+    keymap("n", "<A-d>", ":lua require('cp').destroy()<CR>", opts)
+    keymap("n", "<leader>i", ":lua require('cp').change_width(5)<CR>", opts)
+    keymap("n", "<leader>d", ":lua require('cp').change_width(-5)<CR>", opts)
+    keymap("n", ",cp", ":lua require('cp').change_buildsystem()<CR>", opts)
+end
