@@ -3,7 +3,12 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 	use 'akinsho/bufferline.nvim'
 	use 'nvim-lua/plenary.nvim'
-	use 'nvim-telescope/telescope.nvim'
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            { "nvim-telescope/telescope-live-grep-args.nvim" },
+        },
+    }
     use 'nvim-treesitter/nvim-treesitter'
 	use "williamboman/mason.nvim"
 	use {
@@ -36,5 +41,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use {'srikanth-iyengar/competitive-programming.nvim', as = 'cp'}
     use 'nvim-tree/nvim-tree.lua'
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
 end)

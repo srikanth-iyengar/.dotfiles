@@ -1,9 +1,5 @@
 #!/bin/zsh
 
-# My custom alias
-alias vim="nvim"
-alias tmx="tmux -u"
-
 # SDKMAN conf
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -20,16 +16,6 @@ activate_nvm() {
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     echo "NVM has been activated."
 }
-
-# Function to deactivate NVM
-deactivate_nvm() {
-    unset NVM_DIR
-    unset NVM_BIN
-    unset NVM_CD_FLAGS
-    unset NVM_CURRENT_VERSION
-    echo "NVM has been deactivated."
-}
-
 
 readmd() {
     if [ -z "$1" ]; then
@@ -54,23 +40,64 @@ notify() {
     curl https://ntfy.srikanthk.tech/shell-commands -d "$msg"
 }
 
-d_hist() {
-  local commands_to_delete=("ls" "clear", "cd", "exit", "history")
-  local history_file="$HISTFILE"
-  
-  for cmd in "${commands_to_delete[@]}"; do
-    sed -i "/$cmd/d" "$history_file"
-  done
-
-  fc -R
-}
-
 enter() {
     docker exec -i -t $1 /bin/bash
+}
+
+histsearch() {
+    history | fzf
+}
+
+__git_branch() {
+    output=$(git branch --show-current 2>/dev/null)
+    if [ $? -eq 0 ]; then
+        echo $output
+    fi
+    unset output
+}
+
+__git_status() {
+    changes=`git status --porcelain 2>/dev/null`
+    if [ $? -ne 0 ]; then
+        return
+    elif [[ $changes ]]; then
+        echo ''
+        return
+    fi
+}
+
+build_prompt() {
+    local exitCode="$?"
+    local prompt=''
+
+    prompt+="$(tput setaf $((exitCode == 0 ? 47 : 1)))"
+
+    prompt+='  '
+    prompt+="$(tput bold; tput setaf 87)"
+    prompt+='\W'
+    prompt+="$(__git_branch)$(__git_status)"
+    prompt+="$(tput sgr0)  "
+
+    PS1="$prompt"
+    unset prompt
+    unset exitCode
+}
+
+__d_hist() {
+    offset=0
+    ids=$(history | grep -E "(\s|^)ls(\s|$)|(\s|^)clear(\s|$)|(\s|^)history(\s|$)"\
+        | awk '{print $1}')
+    for id in $ids; do
+        ((target=$id-$offset))
+        history -d $target
+        ((offset=offset+1))
+    done
+}
+
+update_resume() {
+    scp srikanth@latex.srikanthk.net:/home/srikanth/docs/resume/resume.pdf ~/Documents/Resume_Srikanth_Iyengar.pdf
 }
 
 # Just homebrew thing
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
