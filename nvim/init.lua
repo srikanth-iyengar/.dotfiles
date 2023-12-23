@@ -43,6 +43,7 @@ require "user.gsigns"
 require "user.lualine"
 require "user.treesitter"
 require "user.lsp-config"
+require "user.noice"
 
 
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")

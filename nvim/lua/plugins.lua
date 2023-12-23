@@ -43,4 +43,8 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-tree.lua'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
+    -- Highly Experimental Noice.nvim
+
+    use 'MunifTanjim/nui.nvim'
+    use 'folke/noice.nvim'
 end)
