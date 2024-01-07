@@ -1,50 +1,102 @@
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
-	use 'kyazdani42/nvim-web-devicons'
-	use 'akinsho/bufferline.nvim'
-	use 'nvim-lua/plenary.nvim'
-    use {
+-- Example using a list of specs with the default options
+require("lazy").setup({
+  "folke/which-key.nvim",
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  "folke/neodev.nvim",
+  "kyazdani42/nvim-web-devicons",
+  {
+    "akinsho/bufferline.nvim",
+    config = function()
+        require("user.bufferline")
+    end
+  },
+  {"nvim-lua/plenary.nvim", lazy = true},
+  {
         "nvim-telescope/telescope.nvim",
-        requires = {
-            { "nvim-telescope/telescope-live-grep-args.nvim" },
-        },
-    }
-    use 'nvim-treesitter/nvim-treesitter'
-	use "williamboman/mason.nvim"
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+        config = function()
+            require("user.telescope")
+        end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      local configs = require("nvim-treesitter.configs")
+      configs.setup({
+          ensure_installed = { "c", "lua", "vim", "java", "javascript", "typescript", "go"},
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },
+      })
+    end
+  },
+  "williamboman/mason.nvim",
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v1.x",
+    dependencies = {
+			"neovim/nvim-lspconfig",             -- Required
+			"williamboman/mason.nvim",           -- Optional
+			"williamboman/mason-lspconfig.nvim", -- Optional
 
 			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},         -- Required
-			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			{'hrsh7th/cmp-buffer'},       -- Optional
-			{'hrsh7th/cmp-path'},         -- Optional
-			{'saadparwaiz1/cmp_luasnip'}, -- Optional
-			{'hrsh7th/cmp-nvim-lua'},     -- Optional
+			"hrsh7th/nvim-cmp",         -- Required
+			"hrsh7th/cmp-nvim-lsp",     -- Required
+			"hrsh7th/cmp-buffer",       -- Optional
+			"hrsh7th/cmp-path",         -- Optional
+			"saadparwaiz1/cmp_luasnip", -- Optional
+			"hrsh7th/cmp-nvim-lua",     -- Optional
 
 			-- Snippets
-			{'L3MON4D3/LuaSnip'},             -- Required
-			{'rafamadriz/friendly-snippets'}, -- Optional
-		}
-	}
-    use 'Mofiqul/vscode.nvim'
-    use 'lewis6991/gitsigns.nvim'
-    use 'nvim-lualine/lualine.nvim'
-    use 'meuter/lualine-so-fancy.nvim'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-fugitive'
-    use {'srikanth-iyengar/competitive-programming.nvim', as = 'cp'}
-    use 'nvim-tree/nvim-tree.lua'
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-
-    -- Highly Experimental Noice.nvim
-
-    use 'MunifTanjim/nui.nvim'
-    use 'folke/noice.nvim'
-end)
+			"L3MON4D3/LuaSnip",             -- Required
+			"rafamadriz/friendly-snippets", -- Optional
+    },
+    config = function()
+      require("user.lsp-config")
+    end
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    config = function()
+      -- vim.cmd[[colorscheme vscode]]
+    end
+  },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+            -- Lua
+        require("onedark").setup({
+            style = "cool",
+        })
+        require("onedark").load()
+    end
+  },
+  {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+          require("user.gsigns")
+      end
+  },
+  {
+      "nvim-lualine/lualine.nvim",
+      config = function()
+          require("user.lualine")
+      end
+  },
+  "meuter/lualine-so-fancy.nvim",
+  "tpope/vim-commentary",
+  "tpope/vim-fugitive",
+  {
+      "nvim-tree/nvim-tree.lua",
+      config = function()
+          require("nvim-tree").setup()
+      end
+  },
+  "MunifTanjim/nui.nvim",
+  {
+    "folke/noice.nvim",
+    config = function()
+        require("user.noice")
+    end
+  },
+})

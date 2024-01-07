@@ -1,6 +1,7 @@
 vim.opt.wrap=false
 
 vim.opt.guicursor=""
+vim.opt.mouse=""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -30,37 +31,22 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 
 require 'plugins'
 require "user.keymaps"
-require "user.bufferline"
-require "user.telescope"
-require "user.cmp"
-require "user.custom"
-require "user.colorscheme"
-require "user.gsigns"
-require "user.lualine"
-require "user.treesitter"
-require "user.lsp-config"
-require "user.noice"
 
-
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if status_ok then
-    local servers = {
-        "jsonls",
-        "lua_ls",
-        "pylsp",
-        "sqlls",
-        "kotlin_language_server",
-        "dockerls",
-        "jdtls"
-    }
-    lsp_installer.setup {
-        ensure_installed = servers
-    }
-end
-require("mason").setup()
-local nvim_lsp = require('lspconfig')
-require("nvim-tree").setup()
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true

@@ -77,3 +77,13 @@ local function setup_cp()
     keymap("n", "<leader>d", ":lua require('cp').change_width(-5)<CR>", opts)
     keymap("n", ",cp", ":lua require('cp').change_buildsystem()<CR>", opts)
 end
+
+
+-- keymap to accept copilot suggestion
+vim.keymap.set("i", "<C-a>", function ()
+  local copilot_keys = vim.fn["copilot#Accept"]()
+  if copilot_keys ~= "" then
+    vim.api.nvim_feedkeys(copilot_keys, "n", true)
+  else
+  end
+end, opts)

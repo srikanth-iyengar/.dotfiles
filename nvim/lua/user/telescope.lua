@@ -4,12 +4,6 @@ if not present then
   return
 end
 
-local installed, lga = pcall(require, "telescope-live-grep-args.actions")
-
-if not installed then
-  return
-end
-
 vim.g.theme_switcher_loaded = true
 
 local options = {
@@ -43,23 +37,6 @@ local options = {
     },
   },
   extensions = {
-      fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-      },
-      live_grep_args = {
-        auto_quoting = true,
-        mappings = {
-            i = {
-                ["<C-k>"] = lga.quote_prompt(),
-                ["<C-i>"] = lga.quote_prompt({
-                    postfix = " --iglob",
-                }),
-            }
-        }
-      },
   },
   pickers = {
       find_files = {
@@ -75,14 +52,10 @@ local options = {
 
 telescope.setup(options)
 
-require('telescope').load_extension('fzf')
-require("telescope").load_extension("live_grep_args")
-
-
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ps",
 function ()
-  telescope.extensions.live_grep_args.live_grep_args()
+  builtin.live_grep()
 end)
 
 
