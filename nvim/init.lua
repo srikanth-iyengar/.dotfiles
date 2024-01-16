@@ -1,7 +1,7 @@
-vim.opt.wrap=false
+vim.opt.wrap = false
 
-vim.opt.guicursor=""
-vim.opt.mouse=""
+vim.opt.guicursor = ""
+vim.opt.mouse = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -50,3 +50,10 @@ require "user.keymaps"
 
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
+
+
+local function say_hello()
+  print("hello")
+end
+
+say_hello()

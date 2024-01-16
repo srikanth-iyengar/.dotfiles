@@ -1,7 +1,7 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-    print("fat gaya")
-    return
+  print("fat gaya")
+  return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
@@ -44,11 +44,11 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-cmp.setup.filetype({'cp_utils', 'help', 'text'}, {
-    window = {
-      documentation = cmp.config.disable
-    }
-  })
+cmp.setup.filetype({ 'cp_utils', 'help', 'text' }, {
+  window = {
+    documentation = cmp.config.disable
+  }
+})
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -57,7 +57,7 @@ cmp.setup {
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-	["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -96,20 +96,20 @@ cmp.setup {
     end, {
       "i",
       "s",
-  }),
-   ["<C-a"] = cmp.mapping(function(fallback)
-     cmp.mapping.abort()
-     local copilot_keys = vim.fn["copilot#Accept"]()
-     if copilot_keys ~= "" then
+    }),
+    ["<C-a"] = cmp.mapping(function(fallback)
+      cmp.mapping.abort()
+      local copilot_keys = vim.fn["copilot#Accept"]()
+      if copilot_keys ~= "" then
         vim.api.nvim_feedkeys(copilot_keys, "n", true)
       else
         fallback()
-     end
-   end,{
-    "i",
-    "s",
-  })
-},
+      end
+    end, {
+      "i",
+      "s",
+    })
+  },
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -130,6 +130,7 @@ cmp.setup {
     { name = "luasnip" },
     -- { name = "buffer" },
     { name = "path" },
+    { name = "orgmode" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
