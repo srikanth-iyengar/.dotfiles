@@ -1,8 +1,5 @@
 -- Example using a list of specs with the default options
 require("lazy").setup({
-  "folke/which-key.nvim",
-  { "folke/neoconf.nvim",    cmd = "Neoconf" },
-  "folke/neodev.nvim",
   "kyazdani42/nvim-web-devicons",
   {
     "akinsho/bufferline.nvim",
@@ -21,13 +18,22 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      local configs = require("nvim-treesitter.configs")
-      configs.setup({
-        ensure_installed = { "c", "lua", "vim", "java", "javascript", "typescript", "go" },
+      require 'nvim-treesitter.configs'.setup {
+        ensure_installed = { "c", "lua", "java", "cpp", "python", "bash", "awk", "sql", "rust" },
+        ignore_install = { "javascript" },
         sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
+        highlight = {
+          enable = true,
+          disable = function(lang, buf)
+            local max_filesize = 100 * 1024 -- 100 KB
+            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
+          end,
+          additional_vim_regex_highlighting = false,
+        },
+      }
     end
   },
   "williamboman/mason.nvim",
@@ -35,37 +41,25 @@ require("lazy").setup({
     "VonHeikemen/lsp-zero.nvim",
     branch = "v1.x",
     dependencies = {
-      "neovim/nvim-lspconfig",                   -- Required
-      "williamboman/mason.nvim",                 -- Optional
-      "williamboman/mason-lspconfig.nvim",       -- Optional
+      "neovim/nvim-lspconfig",             -- Required
+      "williamboman/mason.nvim",           -- Optional
+      "williamboman/mason-lspconfig.nvim", -- Optional
 
       -- Autocompletion
-      "hrsh7th/nvim-cmp",               -- Required
-      "hrsh7th/cmp-nvim-lsp",           -- Required
-      "hrsh7th/cmp-buffer",             -- Optional
-      "hrsh7th/cmp-path",               -- Optional
-      "saadparwaiz1/cmp_luasnip",       -- Optional
-      "hrsh7th/cmp-nvim-lua",           -- Optional
+      "hrsh7th/nvim-cmp",         -- Required
+      "hrsh7th/cmp-nvim-lsp",     -- Required
+      "hrsh7th/cmp-buffer",       -- Optional
+      "hrsh7th/cmp-path",         -- Optional
+      "saadparwaiz1/cmp_luasnip", -- Optional
+      "hrsh7th/cmp-nvim-lua",     -- Optional
 
       -- Snippets
-      "L3MON4D3/LuaSnip",                   -- Required
-      "rafamadriz/friendly-snippets",       -- Optional
+      "L3MON4D3/LuaSnip",             -- Required
+      "rafamadriz/friendly-snippets", -- Optional
     },
     config = function()
       require("user.lsp-config")
       require("user.cmp")
-    end
-  },
-  {
-    "Mofiqul/vscode.nvim",
-    config = function()
-      -- vim.cmd[[colorscheme vscode]]
-    end,
-    lazy = true
-  },
-  {
-    "navarasu/onedark.nvim",
-    config = function()
     end
   },
   {
@@ -86,15 +80,33 @@ require("lazy").setup({
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
-      require("nvim-tree").setup()
+      require("nvim-tree").setup({
+        diagnostics = {
+          enable = true,
+          show_on_dirs = true,
+          show_on_open_dirs = true,
+          debounce_delay = 50,
+          severity = {
+            min = vim.diagnostic.severity.ERROR,
+            max = vim.diagnostic.severity.ERROR,
+          },
+          icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+          },
+        },
+
+      })
     end
   },
   "MunifTanjim/nui.nvim",
   {
     "folke/noice.nvim",
-    -- config = function()
-    -- require("user.noice")
-    -- end
+    config = function()
+      require("user.noice")
+    end
   },
   {
     "rose-pine/neovim",
@@ -136,18 +148,11 @@ require("lazy").setup({
     end
   },
   {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      -- vim.cmd [[colorscheme kanagawa]]
-    end,
-    lazy = true
-  },
-  {
     "sindrets/diffview.nvim",
   },
   {
     "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",     -- This is the important bit!
+    build = ":Neorg sync-parsers", -- This is the important bit!
     config = function()
       require("neorg").setup {
         load = {
@@ -169,16 +174,18 @@ require("lazy").setup({
   {
     "luisiacc/gruvbox-baby",
     config = function()
-      -- vim.cmd [[colorscheme gruvbox-baby]]
     end
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "ThePrimeagen/harpoon",
     config = function()
-      vim.opt.background = "dark"
-      vim.cmd [[colorscheme oxocarbon]]
-    end,
-    -- lazy = true
+      require("user.harpoon")
+    end
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    config = function()
+      vim.cmd [[colorscheme vscode]]
+    end
   }
-
 })

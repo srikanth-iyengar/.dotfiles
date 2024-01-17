@@ -24,7 +24,7 @@ map("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
 
 lsp.on_attach(function(client, bufnr)
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-    local ignoreFts = { "markdown" };
+    local ignoreFts = { "markdown", "typescript", "typescriptreact" };
     local found = false
     for k, v in ipairs(ignoreFts) do
         if v == filetype then

@@ -25,7 +25,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 
 keymap("i", "jk", "<ESC>", opts)
-keymap("i", "<C-c>" ,"<esc>", opts)
+keymap("i", "<C-c>", "<esc>", opts)
 
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -55,8 +55,6 @@ keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader><leader>", ":noh<CR>", opts)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap("n", "<leader>g", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<A-w>", "<cmd>bdelete<CR>", opts)
 
 
@@ -71,7 +69,7 @@ local function setup_cp()
     keymap("n", ",fo", ":lua require('cp').focus_output()<CR>", opts)
     keymap("n", ",fe", ":lua require('cp').focus_error()<CR>", opts)
     keymap("n", "<A-a>", ":lua require('cp').hide_all()<CR>", opts)
-    keymap("n", "<A-t>" ,":lua require('cp').setup()<CR>", opts)
+    keymap("n", "<A-t>", ":lua require('cp').setup()<CR>", opts)
     keymap("n", "<A-d>", ":lua require('cp').destroy()<CR>", opts)
     keymap("n", "<leader>i", ":lua require('cp').change_width(5)<CR>", opts)
     keymap("n", "<leader>d", ":lua require('cp').change_width(-5)<CR>", opts)
@@ -80,10 +78,10 @@ end
 
 
 -- keymap to accept copilot suggestion
-vim.keymap.set("i", "<C-a>", function ()
-  local copilot_keys = vim.fn["copilot#Accept"]()
-  if copilot_keys ~= "" then
-    vim.api.nvim_feedkeys(copilot_keys, "n", true)
-  else
-  end
+vim.keymap.set("i", "<C-a>", function()
+    local copilot_keys = vim.fn["copilot#Accept"]()
+    if copilot_keys ~= "" then
+        vim.api.nvim_feedkeys(copilot_keys, "n", true)
+    else
+    end
 end, opts)

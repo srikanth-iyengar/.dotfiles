@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.wrap = false
 
 vim.opt.guicursor = ""
@@ -6,9 +9,9 @@ vim.opt.mouse = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -50,10 +53,3 @@ require "user.keymaps"
 
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-
-
-local function say_hello()
-  print("hello")
-end
-
-say_hello()
