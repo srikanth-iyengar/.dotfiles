@@ -37,35 +37,50 @@ local options = {
     },
   },
   extensions = {
+    fzf = {
+      fuzzy = true,                   -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    }
   },
   pickers = {
-      find_files = {
-          previewer = false,
-          theme = "dropdown",
-      },
-      git_files = {
-          previewer = false,
-          theme = "dropdown",
-      }
+    find_files = {
+      previewer = false,
+      theme = "dropdown",
+    },
+    git_files = {
+      previewer = false,
+      theme = "dropdown",
+    }
   },
 }
 
+telescope.load_extension("refactoring")
+telescope.load_extension("fzf")
 telescope.setup(options)
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ps",
-function ()
-  builtin.live_grep()
-end)
+  function()
+    builtin.live_grep()
+  end
+)
 
 
 vim.keymap.set("n", "<C-p>",
-    builtin.git_files,
-    {}
+  builtin.git_files,
+  {}
 )
 
 
 vim.keymap.set("n", "<A-p>",
-    builtin.buffers,
-    {}
+  builtin.buffers,
+  {}
+)
+vim.keymap.set(
+  { "n", "x" },
+  "<leader>rr",
+  function() require('telescope').extensions.refactoring.refactors() end
 )
