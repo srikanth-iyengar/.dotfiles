@@ -7,10 +7,10 @@ vim.g.maplocalleader = " "
 
 keymap("", "<Space>", "<Nop>", opts)
 
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -61,27 +61,27 @@ keymap("n", "<A-w>", "<cmd>bdelete<CR>", opts)
 
 -- keymaps for cp
 local function setup_cp()
-    keymap("n", ",tr", ":lua require('cp').run()<CR>", opts)
-    keymap("n", ",ti", ":lua require('cp').toggle_input()<CR>", opts)
-    keymap("n", ",to", ":lua require('cp').toggle_output()<CR>", opts)
-    keymap("n", ",te", ":lua require('cp').toggle_error()<CR>", opts)
-    keymap("n", ",fi", ":lua require('cp').focus_input()<CR>", opts)
-    keymap("n", ",fo", ":lua require('cp').focus_output()<CR>", opts)
-    keymap("n", ",fe", ":lua require('cp').focus_error()<CR>", opts)
-    keymap("n", "<A-a>", ":lua require('cp').hide_all()<CR>", opts)
-    keymap("n", "<A-t>", ":lua require('cp').setup()<CR>", opts)
-    keymap("n", "<A-d>", ":lua require('cp').destroy()<CR>", opts)
-    keymap("n", "<leader>i", ":lua require('cp').change_width(5)<CR>", opts)
-    keymap("n", "<leader>d", ":lua require('cp').change_width(-5)<CR>", opts)
-    keymap("n", ",cp", ":lua require('cp').change_buildsystem()<CR>", opts)
+  keymap("n", ",tr", ":lua require('cp').run()<CR>", opts)
+  keymap("n", ",ti", ":lua require('cp').toggle_input()<CR>", opts)
+  keymap("n", ",to", ":lua require('cp').toggle_output()<CR>", opts)
+  keymap("n", ",te", ":lua require('cp').toggle_error()<CR>", opts)
+  keymap("n", ",fi", ":lua require('cp').focus_input()<CR>", opts)
+  keymap("n", ",fo", ":lua require('cp').focus_output()<CR>", opts)
+  keymap("n", ",fe", ":lua require('cp').focus_error()<CR>", opts)
+  keymap("n", "<A-a>", ":lua require('cp').hide_all()<CR>", opts)
+  keymap("n", "<A-t>", ":lua require('cp').setup()<CR>", opts)
+  keymap("n", "<A-d>", ":lua require('cp').destroy()<CR>", opts)
+  keymap("n", "<leader>i", ":lua require('cp').change_width(5)<CR>", opts)
+  keymap("n", "<leader>d", ":lua require('cp').change_width(-5)<CR>", opts)
+  keymap("n", ",cp", ":lua require('cp').change_buildsystem()<CR>", opts)
 end
 
 
 -- keymap to accept copilot suggestion
 vim.keymap.set("i", "<C-a>", function()
-    local copilot_keys = vim.fn["copilot#Accept"]()
-    if copilot_keys ~= "" then
-        vim.api.nvim_feedkeys(copilot_keys, "n", true)
-    else
-    end
+  local copilot_keys = vim.fn["copilot#Accept"]()
+  if copilot_keys ~= "" then
+    vim.api.nvim_feedkeys(copilot_keys, "n", true)
+  else
+  end
 end, opts)
