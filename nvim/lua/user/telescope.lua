@@ -57,7 +57,6 @@ local options = {
   },
 }
 
-telescope.load_extension("refactoring")
 telescope.load_extension("fzf")
 telescope.setup(options)
 
@@ -78,9 +77,4 @@ vim.keymap.set("n", "<C-p>",
 vim.keymap.set("n", "<A-p>",
   builtin.buffers,
   {}
-)
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>rr",
-  function() require('telescope').extensions.refactoring.refactors() end
 )

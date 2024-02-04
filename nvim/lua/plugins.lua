@@ -1,4 +1,3 @@
--- Example using a list of specs with the default options
 require("lazy").setup({
   "kyazdani42/nvim-web-devicons",
   {
@@ -13,9 +12,6 @@ require("lazy").setup({
     config = function()
       require("user.telescope")
     end,
-    dependencies = {
-      "ThePrimeagen/refactoring.nvim"
-    }
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -79,7 +75,6 @@ require("lazy").setup({
   },
   "meuter/lualine-so-fancy.nvim",
   "tpope/vim-commentary",
-  "tpope/vim-fugitive",
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
@@ -102,13 +97,6 @@ require("lazy").setup({
         },
 
       })
-    end
-  },
-  "MunifTanjim/nui.nvim",
-  {
-    "folke/noice.nvim",
-    config = function()
-      require("user.noice")
     end
   },
   {
@@ -188,22 +176,22 @@ require("lazy").setup({
   {
     "Mofiqul/vscode.nvim",
     config = function()
+      vim.cmd [[colorscheme vscode]]
     end,
-    lazy = true,
-  },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" }
-    }
+    lazy = true
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   {
     'sainnhe/gruvbox-material',
     config = function()
       vim.cmd [[colorscheme gruvbox-material]]
+    end,
+    lazy = true,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      vim.cmd [[colorscheme gruvbox]]
     end
   }
-
 })
