@@ -6,7 +6,10 @@ require("lazy").setup({
       require("user.bufferline")
     end
   },
-  { "nvim-lua/plenary.nvim",                    lazy = true },
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = true
+  },
   {
     "nvim-telescope/telescope.nvim",
     config = function()
@@ -152,8 +155,9 @@ require("lazy").setup({
           ["core.dirman"] = {
             config = {
               workspaces = {
-                work = "~/orgfiles/work",
-                personal = "~/orgfiles/personal",
+                work = "~/program/orgfiles/work",
+                personal = "~/program/orgfiles/personal",
+                changelog = "~/program/orgfiles/changelog",
               },
               default_workspace = "personal",
             }

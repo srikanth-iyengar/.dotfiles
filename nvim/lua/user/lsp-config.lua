@@ -1,7 +1,5 @@
 local lsp = require("lsp-zero")
 
--- lsp.on_attach(function(client, bufnr)
-
 local function map(mode, l, r, opts)
   opts = opts or {}
   -- opts.buffer = bufnr
@@ -19,6 +17,16 @@ map("n", "]d", function() vim.diagnostic.goto_prev() end)
 map("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
 map("n", "<leader>vrn", function() vim.lsp.buf.rename() end)
 map("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
+map("n", "<A-O>", function()
+  if vim.bo.filetype == 'typescript' or vim.bo.filetype == 'typescriptreact' then
+    vim.cmd [[TSToolsOrganizeImports]]
+  end
+end)
+map("n", "<leader>mi", function()
+  if vim.bo.filetype == 'typescript' or vim.bo.filetype == 'typescriptreact' then
+    vim.cmd [[TSToolsAddMissingImports]]
+  end
+end)
 
 -- end)
 
@@ -56,26 +64,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-Space>'] = cmp.mapping.complete(),
 })
 
--- lsp.set_sign_icons({
---   error = '✘',
---   warn = '▲',
---   hint = '⚑',
---   info = '»'
--- })
-
 lsp.set_preferences({
   sign_icons = {}
 })
 
-
-
 lsp.setup()
-require("lspconfig").tsserver.setup({
-  initializationOptions = {
-    maxTsServerMemory = 8000,
-    preferences = {
-      allowIncompleteCompletions = true,
-      allowRenameOfImportPath = true,
-    },
-  },
-})
