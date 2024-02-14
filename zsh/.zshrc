@@ -124,3 +124,5 @@ if [ -f '/home/srikanth/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sri
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/srikanth/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/srikanth/apps/google-cloud-sdk/completion.zsh.inc'; fi
+
+[[ -s "/home/srikanth/.gvm/scripts/gvm" ]] && source "/home/srikanth/.gvm/scripts/gvm"

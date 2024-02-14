@@ -108,4 +108,8 @@ test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export ANDROID_HOME=$HOME/Android
-export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
+export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
+
+export FLUTTER_HOME=$HOME/apps/flutter
+export PATH="${PATH}:${FLUTTER_HOME}/bin"
+export PATH="${PATH}:$HOME/bin"
