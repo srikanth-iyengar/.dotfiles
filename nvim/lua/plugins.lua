@@ -103,15 +103,6 @@ require("lazy").setup({
     end
   },
   {
-    "rose-pine/neovim",
-    config = function()
-      require("rose-pine").setup({
-        variant = "moon"
-      })
-      -- vim.cmd [[colorscheme rose-pine]]
-    end
-  },
-  {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
@@ -180,22 +171,41 @@ require("lazy").setup({
   {
     "Mofiqul/vscode.nvim",
     config = function()
-      vim.cmd [[colorscheme vscode]]
+      -- vim.cmd [[colorscheme vscode]]
     end,
     lazy = true
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   {
-    'sainnhe/gruvbox-material',
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
     config = function()
-      vim.cmd [[colorscheme gruvbox-material]]
-    end,
-    lazy = true,
+      require("flutter-tools").setup {} -- use defaults
+    end
   },
   {
-    "ellisonleao/gruvbox.nvim",
+    "rmehri01/onenord.nvim",
     config = function()
-      vim.cmd [[colorscheme gruvbox]]
+      vim.cmd [[colorscheme onenord]]
+    end,
+    lazy = true
+  },
+  {
+    'olivercederborg/poimandres.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('poimandres').setup {
+      }
+    end,
+
+    -- optionally set the colorscheme within lazy config
+    init = function()
+      vim.cmd("colorscheme poimandres")
     end
   }
 })
