@@ -160,6 +160,7 @@ require("lazy").setup({
   {
     "luisiacc/gruvbox-baby",
     config = function()
+      vim.cmd[[colorscheme gruvbox-baby]]
     end
   },
   {
@@ -175,7 +176,7 @@ require("lazy").setup({
     end,
     lazy = true
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   {
     'akinsho/flutter-tools.nvim',
     lazy = false,
@@ -205,7 +206,7 @@ require("lazy").setup({
 
     -- optionally set the colorscheme within lazy config
     init = function()
-      vim.cmd("colorscheme poimandres")
+      -- vim.cmd("colorscheme poimandres")
     end
   }
 })

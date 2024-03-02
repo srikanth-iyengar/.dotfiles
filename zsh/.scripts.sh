@@ -1,43 +1,22 @@
 #!/bin/zsh
 
+alias vim=nvim
+
 # SDKMAN conf
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Cargo thing
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # Golang version manager
-source "/home/srikanth/.gvm/scripts/gvm"
+# source "/home/srikanth/.gvm/scripts/gvm"
 # Function to activate NVM
 activate_nvm() {
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     echo "NVM has been activated."
-}
-
-readmd() {
-    if [ -z "$1" ]; then
-        echo "Usage: readmd <filename>"
-    else
-        gum format < "$1" | gum pager
-    fi
-}
-
-notify() {
-    arg1="$1"
-    arg2="$2"
-    
-    code="$3"
-    msg="no msg"
-
-    if [ $code -eq 0 ]; then
-        msg="$arg1"
-    else
-        msg="$arg2"
-    fi
-    curl https://ntfy.srikanthk.tech/shell-commands -d "$msg"
 }
 
 enter() {
@@ -51,7 +30,7 @@ histsearch() {
 __git_branch() {
     output=$(git branch --show-current 2>/dev/null)
     if [ $? -eq 0 ]; then
-        echo $output
+      echo "git:($output)"
     fi
     unset output
 }
@@ -103,13 +82,12 @@ update_resume() {
     scp srikanth@latex.srikanthk.net:/home/srikanth/docs/resume/resume.pdf ~/Documents/Resume_Srikanth_Iyengar.pdf
 }
 
-# Just homebrew thing
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 export ANDROID_HOME=$HOME/Android
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
 
 export FLUTTER_HOME=$HOME/apps/flutter
 export PATH="${PATH}:${FLUTTER_HOME}/bin"
 export PATH="${PATH}:$HOME/bin"
+
+# PROMPT_COMMAND=build_prompt
+
