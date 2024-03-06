@@ -6,11 +6,6 @@ alias vim=nvim
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Cargo thing
-# . "$HOME/.cargo/env"
-
-# Golang version manager
-# source "/home/srikanth/.gvm/scripts/gvm"
 # Function to activate NVM
 activate_nvm() {
     export NVM_DIR="$HOME/.nvm"
@@ -89,5 +84,11 @@ export FLUTTER_HOME=$HOME/apps/flutter
 export PATH="${PATH}:${FLUTTER_HOME}/bin"
 export PATH="${PATH}:$HOME/bin"
 
-# PROMPT_COMMAND=build_prompt
+linkthis() {
+  mkdir -p $PWD/.gopath
+  export GOPATH="$PWD/.gopath"
+}
 
+export PATH="$PATH:$HOME/apps/go/bin"
+export GOPATH="$HOME/gopath"
+export PATH="$PATH:$HOME/gopath/bin"

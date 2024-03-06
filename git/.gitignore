@@ -1,0 +1,7 @@
+## Clangd things
+.cache/**
+compile_commands.json
+
+
+## Script to purge the project build caches and unnecessary shits that fills my disk space
+custom_purge.sh

@@ -172,11 +172,9 @@ require("lazy").setup({
   {
     "Mofiqul/vscode.nvim",
     config = function()
-      -- vim.cmd [[colorscheme vscode]]
     end,
     lazy = true
   },
-  -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   {
     'akinsho/flutter-tools.nvim',
     lazy = false,
@@ -203,10 +201,16 @@ require("lazy").setup({
       require('poimandres').setup {
       }
     end,
-
-    -- optionally set the colorscheme within lazy config
     init = function()
-      -- vim.cmd("colorscheme poimandres")
     end
+  },
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      require("oil").setup()
+    end,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    },
   }
 })

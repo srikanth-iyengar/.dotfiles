@@ -28,11 +28,13 @@ map("n", "<leader>mi", function()
   end
 end)
 
+map("n", "<A-F>", function() lsp.buffer_autoformat() end)
+
 -- end)
 
 lsp.on_attach(function(client, bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-  local ignoreFts = { "markdown", "typescript", "typescriptreact", "java" };
+  local ignoreFts = { "markdown", "typescript", "typescriptreact", "java", "cpp", "c", "go" };
   local found = false
   for k, v in ipairs(ignoreFts) do
     if v == filetype then

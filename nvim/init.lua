@@ -49,8 +49,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require 'plugins'
+require "plugins"
 require "user.keymaps"
+require "user.custom"
 
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
