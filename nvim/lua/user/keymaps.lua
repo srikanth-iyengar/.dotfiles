@@ -33,8 +33,8 @@ keymap("v", ">", ">gv", opts)
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("v", "p", '"_dP', opts)
-vim.keymap.set("v", "<C-/>", 'Commentary<CR>', opts)
 vim.keymap.set("n", "J", "mzJ`z", opts)
+vim.keymap.set("v", "<C-/>", 'Commentary<CR>', opts)
 vim.keymap.set("n", "<C-d>", "<C-d>dzz")
 vim.keymap.set("n", "<C-u>", "<C-u>dzz")
 vim.keymap.set("n", "n", "nzzzv")
@@ -57,8 +57,6 @@ keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 keymap("n", "<A-w>", "<cmd>bdelete<CR>", opts)
 
-
-
 -- keymaps for cp
 local function setup_cp()
   keymap("n", ",tr", ":lua require('cp').run()<CR>", opts)
@@ -76,7 +74,6 @@ local function setup_cp()
   keymap("n", ",cp", ":lua require('cp').change_buildsystem()<CR>", opts)
 end
 
-
 -- keymap to accept copilot suggestion
 vim.keymap.set("i", "<C-a>", function()
   local copilot_keys = vim.fn["copilot#Accept"]()
@@ -85,3 +82,5 @@ vim.keymap.set("i", "<C-a>", function()
   else
   end
 end, opts)
+
+vim.keymap.set("v", "<leader>sc", ":Silicon<CR>", opts)

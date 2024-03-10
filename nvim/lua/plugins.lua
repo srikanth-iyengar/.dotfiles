@@ -160,7 +160,7 @@ require("lazy").setup({
   {
     "luisiacc/gruvbox-baby",
     config = function()
-      vim.cmd[[colorscheme gruvbox-baby]]
+      vim.cmd [[colorscheme gruvbox-baby]]
     end
   },
   {
@@ -212,5 +212,23 @@ require("lazy").setup({
     dependencies = {
       "nvim-tree/nvim-web-devicons"
     },
+  },
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    config = function()
+      require("silicon").setup({
+        font = "JetBrainsMono Nerd Font Mono=34;Noto Color Emoji=34",
+        theme = "Visual Studio Dark+",
+        shadow_blur_radius = 25,
+        to_clipboard = true,
+        pad_horiz = 150,
+        pad_vert = 120,
+        output = function()
+          return "/home/srikanth/Pictures/code/" .. os.date("!%Y-%m-%dT%H-%M-%S") .. "_code.png"
+        end,
+      })
+    end
   }
 })
