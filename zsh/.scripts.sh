@@ -2,6 +2,7 @@
 
 alias vim=nvim
 alias g=git
+alias open=xdg-open
 source /usr/share/bash-completion/completions/git
 __git_complete g __git_main
 

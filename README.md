@@ -23,7 +23,7 @@ To set up these dotfiles on your system, run the following command from the root
 This script will use STOW to symlink the configuration files for neovim, tmux, and zsh to the appropriate locations in your home directory.
 
 
-### RemovalRemoval
+### Removal
 
 If you want to remove the symlinked dotfiles, you can use the following command:
 ```bash

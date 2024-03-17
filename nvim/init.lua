@@ -36,6 +36,10 @@ vim.g.maplocalleader = " "
 
 vim.opt.colorcolumn = "80"
 
+-- Show indents as dots
+vim.opt.list = true
+vim.opt.listchars:append({ tab = '»·', trail = '•', extends = '»', precedes = '«', nbsp = '·' })
+
 -- undercurl
 vim.cmd [[let &t_Cs = "\e[4:3m"]]
 vim.cmd [[let &t_Ce = "\e[4:0m"]]

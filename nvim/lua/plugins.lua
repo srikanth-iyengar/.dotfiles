@@ -35,6 +35,7 @@ require("lazy").setup({
           end,
           additional_vim_regex_highlighting = false,
         },
+        indent = { enable = true, disable = { 'ruby' } },
       }
     end
   },
@@ -109,7 +110,7 @@ require("lazy").setup({
     config = function()
       require("typescript-tools").setup {
         settings = {
-          tsserver_max_memory = 6144
+          tsserver_max_memory = 7144
         }
       }
     end
@@ -156,12 +157,6 @@ require("lazy").setup({
         }
       }
     end,
-  },
-  {
-    "luisiacc/gruvbox-baby",
-    config = function()
-      vim.cmd [[colorscheme gruvbox-baby]]
-    end
   },
   {
     "ThePrimeagen/harpoon",
@@ -230,5 +225,36 @@ require("lazy").setup({
         end,
       })
     end
-  }
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("gruvbox").setup()
+      -- vim.cmd [[colorscheme gruvbox]]
+    end
+  },
+  {
+    "mfussenegger/nvim-lint",
+    config = function()
+      require("lint").linters_by_ft = {
+        go = { "golangcilint" },
+      }
+
+      local golangcilint = require("lint.linters.golangcilint")
+      golangcilint.append_fname = true
+      golangcilint.args = {
+        "run",
+        "--out-format",
+        "json",
+        "--timeout",
+        "5m",
+      }
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      vim.cmd [[colorscheme tokyonight-moon]]
+    end
+  },
 })

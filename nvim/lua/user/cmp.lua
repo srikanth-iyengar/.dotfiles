@@ -1,6 +1,6 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-  print("fat gaya")
+  print("Cmp not installed")
   return
 end
 
@@ -127,7 +127,6 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    -- { name = "buffer" },
     { name = "path" },
     { name = "orgmode" },
   },
@@ -138,5 +137,16 @@ cmp.setup {
   experimental = {
     ghost_text = false,
     native_menu = false,
+  },
+  window = {
+    completion = { -- rounded border; thin-style scrollbar
+      border = 'rounded',
+      scrollbar = '║',
+    },
+    documentation = { -- no border; native-style scrollbar
+      border = nil,
+      scrollbar = '',
+      -- other options
+    },
   },
 }
