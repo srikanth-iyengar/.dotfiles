@@ -27,7 +27,7 @@ require("lazy").setup({
         highlight = {
           enable = true,
           disable = function(lang, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
+            local max_filesize = 10000 * 1024 -- 10000 KB
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
             if ok and stats and stats.size > max_filesize then
               return true
@@ -110,7 +110,7 @@ require("lazy").setup({
     config = function()
       require("typescript-tools").setup {
         settings = {
-          tsserver_max_memory = 7144
+          tsserver_max_memory = 3072,
         }
       }
     end
@@ -137,28 +137,6 @@ require("lazy").setup({
     "sindrets/diffview.nvim",
   },
   {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers", -- This is the important bit!
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                work = "~/program/orgfiles/work",
-                personal = "~/program/orgfiles/personal",
-                changelog = "~/program/orgfiles/changelog",
-              },
-              default_workspace = "personal",
-            }
-          },
-        }
-      }
-    end,
-  },
-  {
     "ThePrimeagen/harpoon",
     config = function()
       require("user.harpoon")
@@ -167,37 +145,8 @@ require("lazy").setup({
   {
     "Mofiqul/vscode.nvim",
     config = function()
+      -- vim.cmd [[colorscheme vscode]]
     end,
-    lazy = true
-  },
-  {
-    'akinsho/flutter-tools.nvim',
-    lazy = false,
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim', -- optional for vim.ui.select
-    },
-    config = function()
-      require("flutter-tools").setup {} -- use defaults
-    end
-  },
-  {
-    "rmehri01/onenord.nvim",
-    config = function()
-      vim.cmd [[colorscheme onenord]]
-    end,
-    lazy = true
-  },
-  {
-    'olivercederborg/poimandres.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('poimandres').setup {
-      }
-    end,
-    init = function()
-    end
   },
   {
     'stevearc/oil.nvim',
@@ -227,13 +176,6 @@ require("lazy").setup({
     end
   },
   {
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      require("gruvbox").setup()
-      -- vim.cmd [[colorscheme gruvbox]]
-    end
-  },
-  {
     "mfussenegger/nvim-lint",
     config = function()
       require("lint").linters_by_ft = {
@@ -252,9 +194,82 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/tokyonight.nvim",
+    "folke/zen-mode.nvim",
+    opts = {
+      plugins = {
+        tmux = { enabled = true }
+      }
+    }
+  },
+  {
+    "pwntester/octo.nvim",
     config = function()
-      vim.cmd [[colorscheme tokyonight-moon]]
+      require "octo".setup()
     end
   },
+  {
+    'mrcjkb/rustaceanvim',
+    config = function()
+
+    end,
+    version = "^4",
+    lazy = false,
+  },
+  {
+    'srikanth-iyengar/competitive-programming.nvim',
+    lazy = true,
+  },
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_agenda_files = '~/orgfiles/**/*',
+        org_default_notes_file = '~/orgfiles/refile.org',
+        org_todo_keywords = { "TODO", "WAITING", "DELEGATED", "PROGRESS", "DONE", },
+        org_todo_keyword_faces = {
+          WAITING = ':background #010101 :forground yellow :weight bold',
+          DELEGATED = ':background #FFFFFF :slant italic :underline on',
+          TODO = ':background #000000 :foreground red',
+          PROGRESS = ':forground orange :weight bold',
+          DONE = ':foreground green :weight bold'
+        },
+        mappings = {
+          org = {
+            org_todo = "<C-h>",
+          }
+        }
+      })
+
+      -- NOTE: If you are using nvim-treesitter with `ensure_installed = "all"` option
+      -- add `org` to ignore_install
+      -- require('nvim-treesitter.configs').setup({
+      --   ensure_installed = 'all',
+      --   ignore_install = { 'org' },
+      -- })
+    end,
+  },
+  {
+    "nordtheme/vim",
+    config = function()
+      -- vim.cmd [[colorscheme nord]]
+    end
+  },
+  {
+    "zootedb0t/citruszest.nvim",
+  },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup {}
+    end
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      vim.cmd [[colorscheme gruvbox]]
+    end
+  }
 })

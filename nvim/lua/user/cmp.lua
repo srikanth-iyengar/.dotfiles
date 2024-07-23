@@ -55,8 +55,8 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
+    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+    -- ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -107,7 +107,9 @@ cmp.setup {
     end, {
       "i",
       "s",
-    })
+    }),
+    ["<C-j>"] = cmp.mapping.scroll_docs("4"),
+    ["<C-k>"] = cmp.mapping.scroll_docs("-4")
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },

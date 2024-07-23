@@ -30,7 +30,7 @@ end)
 
 lsp.on_attach(function(client, bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-  local ignoreFts = { "markdown", "java", "cpp", "c", "go" };
+  local ignoreFts = { "markdown", "java", "cpp", "c", "go", "rust" };
   local found = false
   for k, v in ipairs(ignoreFts) do
     if v == filetype then
