@@ -8,3 +8,6 @@ custom_purge.sh
 
 ## Custom gopath for every project
 .gopath
+.classpath
+.factorypath
+.idea
