@@ -44,6 +44,12 @@ vim.opt.listchars:append({ tab = '»·', trail = '•', extends = '»', precedes
 vim.cmd [[let &t_Cs = "\e[4:3m"]]
 vim.cmd [[let &t_Ce = "\e[4:0m"]]
 
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -61,5 +67,9 @@ require "plugins"
 require "user.keymaps"
 require "user.custom"
 
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
+-- vim.cmd [[ set autoindent noexpandtab tabstop=2 shiftwidth=2 ]]
+-- vim.opt.smartindent = true
+-- vim.opt.tabstop = 2
+-- vim.opt.shiftwidth = 2
+-- vim.opt.expandtab = false
+-- vim.opt.softtabstop = 2

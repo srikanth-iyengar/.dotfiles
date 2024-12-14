@@ -1,33 +1,40 @@
 [user]
-  email = ksrikanth3012@gmail.com
-  name = Srikanth Iyengar
+	email = ksrikanth3012@gmail.com
+	name = Srikanth Iyengar
 [alias]
-    # one-line log
-    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+# one-line log
+	l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 
-    a = add
-    ap = add -p
-    c = commit --verbose
-    ca = commit -a --verbose
-    cm = commit -m
-    cam = commit -a -m
-    m = commit --amend --verbose
-    d = diff
-    ds = diff --stat
-    dc = diff --cached
+	a = add
+	ap = add -p
+	c = commit --verbose
+	ca = commit -a --verbose
+	cm = commit -m
+	cam = commit -a -m
+	m = commit --amend --verbose
+	d = diff
+	ds = diff --stat
+	dc = diff --cached
 
-    s = status -s
-    co = checkout
-    cob = checkout -b
-    # list branches sorted by last modified
-    ; b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-    b = branch
+	s = status -s
+	co = checkout
+	cob = checkout -b
+	# list branches sorted by last modified
+	; b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	b = branch
 
-    # list aliases
-    la = "!git config -l | grep alias | cut -c 7-"
+	# list aliases
+	la = "!git config -l | grep alias | cut -c 7-"
 
 [core]
-  excludesfile = /home/srikanth/.dotfiles/git/.gitignore
-  editor = nvim
+	excludesfile = /home/srikanth/.dotfiles/git/.gitignore
+	editor = nvim
 [maintenance]
 	repo = /tmp/hi
+
+[difftool]
+	prompt = true
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""

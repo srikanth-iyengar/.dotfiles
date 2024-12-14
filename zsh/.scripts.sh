@@ -90,4 +90,6 @@ fi
 
 export PATH="$PATH:$HOME/bin"
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/java/lombok.jar"

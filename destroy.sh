@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 stow -D tmux
 stow -D zsh

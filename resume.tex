@@ -1,0 +1,285 @@
+%-------------------------
+% Resume in Latex
+% Author : Srikanth Iyengar
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+% \documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+% \titleformat{\section}{
+%   \vspace{-4pt}\scshape\raggedright\large\bfseries
+% }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+
+\titleformat{\section}{
+  \vspace{10pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+	{#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+	\item\small{
+    	{#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+% \newcommand{\resumeSubheading}[4]{
+%   \vspace{-2pt}\item
+% 	\begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+%   	\textbf{#1} & \textbf{\small #2} \\
+%   	\textit{\small#3} & \textit{\small #4} \\
+% 	\end{tabular*}\vspace{-7pt}
+% }
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{4pt}\item
+	\begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  	\textbf{#1} & \textbf{\small #2} \\
+  	\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeSubSubheading}[2]{
+	\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+  	\textit{\small#1} & \textit{\small #2} \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+	\item
+	\begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+  	{\small#1} & \textbf{\small #2}\\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+\begin{center}
+	{\Huge \scshape Srikanth Iyengar} \\ \vspace{4pt}
+	\small \raisebox{-0.1\height}\faPhone\ 
+	\href{tel:919653233005}{+91-9653233005} ~ 
+    \href{mailto:srikanth.iyengar@srikanthk.in}{\raisebox{-0.2\height}\faEnvelope\  \underline{srikanth.iyengar@srikanthk.in}} ~
+    \vspace{5pt}
+	\href{https://github.com/srikanth-iyengar/}{\raisebox{-0.2\height}\faGithub\
+	\underline{GitHub}} ~
+	\href{https://linkedin.com/in/srikanth-iyengar-73b32620b/}{\raisebox{-0.2\height}\faLinkedin\
+	\underline{LinkedIn}}
+	\vspace{-2pt}
+\end{center}
+\vspace{-25pt}
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Sardar Patel Institute of Technology}{Jun 2020 - Jun 2024}
+      {Bachelor of Technology in Information Technology; CGPA: 8.6/10}{Mumbai, India}
+    % \resumeItemListStart
+    % \resumeItem
+    %     {Courses: Data Structures, Algorithms, Object-oriented programming, Operating Systems, Networking, Databases}
+    % \resumeItemListEnd
+  \resumeSubHeadingListEnd
+% \vspace{-16pt} % remove this when removing courses
+\vspace{-20pt}
+% -----------EXPERIENCE-----------
+\section{Experience}
+    \resumeSubHeadingListStart
+        \resumeSubheading{Barclays PLC}{July 2024 - Present}{Technology Developer}{Pune, India}
+        \resumeItemListStart
+            \resumeItem{Optimized regression test workflows to achieve execution time from more than \textbf{20 minutes} to \textbf{2-3 minutes}}
+            \resumeItem{Optimized multiple micro-service calls to optimize the response of trading platform}
+            \resumeItem{Designed a simulator service from scratch to remove dependency of external system affecting release cycles}
+            \resumeItem{\underline{Leveraged knowledge} of Angular, Java, Springboot, AWS, MongoDB}
+        \resumeItemListEnd
+        \resumeSubheading
+        {Vyas Edification}{Jan 2024 - June 2024}
+        {Full Stack Engineering Intern, \underline{\href{https://play.google.com/store/apps/details?id=com.bharatbrainz.student}{Playstore App Link}}}{Remote, India}
+        \resumeItemListStart
+            \resumeItem{Lead the development of a gamified learning app, actively participating in key decision-making processes, including infrastructure, frameworks, UX design, and database architecture}
+            \resumeItem{Created Lambda integration with TRPC.io and AWS API Gateway, boosting API development and integration by \textbf{3x}}
+            \resumeItem{Identified and performance issues in the app, reducing average screen render time from \textbf{3-4s} to \textbf{300ms}}
+            \resumeItem{Authored handfull of shell scripts to automate the deployment of multiple Node.js applications, reducing manual deployment time from \textbf{30 minutes} to \textbf{20-30 seconds}.}
+            \resumeItem{Designed and implemented a data health solution to ensure system data integrity which helped in resolving \textbf{25\% data discrepancies}}
+            \resumeItem{\underline{Leveraged knowledge} of Javascript, AWS Lambda, AWS API Gateway, MongoDB, DynamoDB, Event Bridge}
+        \resumeItemListEnd
+        \resumeSubheading
+        {Barclays}{Jun 2023 - Aug 2023}
+        {Technology Analyst Intern }{Pune, India}
+        \resumeItemListStart
+            \resumeItem{Automated a part of regression test suite which took \textbf{weeks} before release cycles to just \textbf{few minutes}}
+            \resumeItem{Designed a mechanism to launch the UI only once for the each UI test suite achieving \textbf{10x} performance improvement}
+            \resumeItem{Developed a optimal thread management using custom hooks in the framework improving faster development process}
+            \resumeItem{\underline{Leveraged knowledge} of Java, AWS, MongoDB, Karate Test Framework}
+        \resumeItemListEnd
+        % \resumeSubheading
+        % {Sardar Patel Institute of Technology}{Sep 2022 - Oct 2022}
+        % {Student Developer - Full Stack Engineering (Payments \& Infrastructure)} {Mumbai, India}
+        % \resumeItemListStart
+        %     \resumeItem{Developed admission portal for university to facilitate \textbf{2000 MAU} and generate \textbf{\$125,000} in revenue annually}
+        %     \resumeItem{Accelerated admission scrutinizing process by \textbf{10x} by formatting and auto-generating PDF \textbf{65+ user data points}}
+        %     \resumeItem{\textbf{Reduced} grievance resolution time by \textbf{33\%} by engineering \textbf{admin dashboard} with support for CRUD operations}
+        %     \resumeItem{\underline{Leveraged knowledge} of Java, Spring, Firebase, AWS, Docker}
+        % \resumeItemListEnd
+    \resumeSubHeadingListEnd
+\vspace{-20pt}
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+	\vspace{-5pt}
+	% \vspace{0pt}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+        {\textbf{Datahive - End to end data pipeline framework} $|$ \href{https://github.com/srikanth-iyengar/datahive}{\underline{GitHub}}}{}
+        \resumeItemListStart
+            \resumeItem{Designed and developed a framework for setting up data pipelines using a \textbf{single} configuration file}
+            \resumeItem{Achieved high data retrieval speed of \textbf{100MB/s}  by optimally pre-indexing the required data based }
+            \resumeItem{\underline{Utilized:} Java, Go, PostgreSQL, Hadoop, Kafka, Spark Elasticsearch, Kibana, Astro}
+        \resumeItemListEnd
+    \vspace{-18pt}
+    \resumeProjectHeading
+        {\textbf{Homelab - Automated Self Hosted Infrastrucutre} $|$ \href{https://github.com/srikanth-iyengar/homelab}{\underline{GitHub}}}{}
+        \resumeItemListStart
+            \resumeItem{Developed a self hostable infrastructure featuring \textbf{10+} essential services, with automated Oauth2 Integration}
+            \resumeItem{Implemented an automated container deployment mechanism triggered by Github Actions upon push events}
+            \resumeItem{\underline{Utilized:} Terraform, Kubernetes, Keycloak}
+        \resumeItemListEnd
+    \vspace{-18pt}
+    \resumeProjectHeading
+        {\textbf{Asyph - Online Coding Contest Platform} $|$ \href{https://github.com/srikanth-iyengar/Asyph-OnlineJudge}{\underline{GitHub}}}{}
+        \resumeItemListStart
+        	\resumeItem{Architected microservices for a seamless coding experience, accommodating \textbf{10,000} concurrent users}
+        	\resumeItem {Developed Spring microservices, achieving a \textbf{40\%} reduction in response time with \textbf{Netflix Eureka and Zuul}}
+        	\resumeItem {Implemented secure user authentication and sign-up using Spring Security\textbf{ }and\textbf{ }JWT, while reducing\textbf{ }database queries}
+            \resumeItem{Enabled \textbf{3x} faster deployment and seamless scalability on \textbf{Kubernetes} using \textbf{Terraform}}
+        	% \resumeItem{Integrated support fo r \textbf{3} programming languages}
+            \resumeItem
+            {\underline{Utilized:} Spring boot, Cassandra, Redis, React}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+\vspace{-20pt}
+
+
+%-----------Achievements-----------
+\section{Achievements}
+% 	\vspace{-5pt}
+	\vspace{0pt}
+	\resumeItemListStart
+        \resumeItem{Winner of Barclays Data Stellar Hackathon - Cloud Integration Track (ranked among top 2 teams nationwide)}
+        \resumeItem{Achieved a rank of \textbf{275} in ICPC qualifiers, earning qualification as an ICPC Regionalist for the year 2023}
+	\resumeItem{Secured Rank of \textbf{2464} in Google Kickstart among        \textbf{10000+} participants world wide February 2022 - }\href{https://drive.google.com/file/d/1hpEC0VQ79eaoYqZdxUPCAr94_IM9jkv7/view?usp=sharing}{\underline{Link}}
+        \resumeItem{Secured Rank of \textbf{1522} in Google Hashcode among \textbf{10000+} participants world wide February 2022 - }\href{https://drive.google.com/file/d/1gow_R_haexq3Mp_zzeyG5gf5uFmlrnZo/view?usp=sharing}{\underline{Link}}
+    	\resumeItem{Secured global rank of \textbf{254} in Leetcode Biweekly contest 83 among \textbf{17,000+} participants -}\href{https://leetcode.com/Srikanth11u2/}{\underline{Link}}
+    	\resumeItem{Secured global rank of \textbf{328} in Codeforces Round \#799 (Div. 4) among \textbf{24,000+} participants -}\href{https://codeforces.com/profile/Srikanth1777}{\underline{Link}}
+    	% \resumeItem{Ranked under \textbf{15094} at Codechef which ranks among the top sites for competitive programmers. Highest rating of \textbf{1813} and rated \textbf{4*} }\href{https://www.codechef.com/users/srikanth1777}{\underline{(Link)}}
+  	\resumeItemListEnd
+\vspace{-20pt}
+
+%  \section{Technical Skills}
+% 	% \vspace{-5pt}
+% 	\vspace{0pt}
+%  \resumeSubHeadingListStart
+%   \item{
+%      \textbf{Languages}{: Java, Go, Python, Javascript}
+%      \newline
+%      \textbf{Technologies}{: Spring Boot, Docker, Linux, React}
+%   }
+%  \resumeSubHeadingListEnd
+% \vspace{-28pt}
+
+ 
+%
+%--------PROGRAMMING SKILLS------------
+\section{Technical Skills}
+% 	\vspace{-5pt}
+	\vspace{0pt}
+ \resumeSubHeadingListStart
+  \item{
+     \textbf{Languages}{: Java, Go, Python}
+     \hfill
+     \textbf{Technologies}{: Spring Boot, Docker, Linux}
+  }
+ \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+\end{document}
+

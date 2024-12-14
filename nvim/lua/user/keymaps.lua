@@ -45,7 +45,7 @@ keymap("n", "<C-_>", ":Commentary<CR>", opts)
 keymap("i", "<C-_>", "<cmd>Commentary<CR>", opts)
 
 -- keymaps from vim script
-keymap("n", "<leader>q", ":NvimTreeToggle<CR>", opts)
+-- keymap("n", "<leader>q", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader><leader>", ":noh<CR>", opts)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
