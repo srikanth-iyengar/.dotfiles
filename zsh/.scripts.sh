@@ -2,6 +2,7 @@
 
 alias vim=nvim
 alias g=git
+alias gk=gk
 alias open=xdg-open
 # source /usr/share/bash-completion/completions/git
 # __git_complete g __git_main
@@ -93,3 +94,5 @@ export PATH="$PATH:$HOME/bin"
 # source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/java/lombok.jar"
+export NDK_HOME="$HOME/apps/ndk"
+

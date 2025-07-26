@@ -55,60 +55,60 @@ keymap("n", "<leader>z", "<cmd>ZenMode<CR>", opts)
 
 -- keymaps for cp
 local function setup_cp()
-  local km = vim.keymap.set
-  km("n", ",tr", function()
-    require('cp').run()
-  end, opts)
-  km("n", ",ti", function()
-    require('cp').toggle_input()
-  end, opts)
-  km("n", ",to", function()
-    require('cp').toggle_output()
-  end, opts)
-  km("n", ",te", function()
-    require('cp').toggle_error()
-  end, opts)
-  km("n", ",fi", function()
-    require('cp').focus_input()
-  end, opts)
-  km("n", ",fo", function()
-    require('cp').focus_output()
-  end, opts)
-  km("n", ",fe", function()
-    require('cp').focus_error()
-  end, opts)
-  km("n", "<A-a>", function()
-    require('cp').hide_all()
-  end, opts)
-  km("n", "<A-t>", function()
-    require('cp').setup()
-  end, opts)
-  km("n", "<A-d>", function()
-    require('cp').destroy()
-  end, opts)
-  km("n", "<leader>i", function()
-    require('cp').change_width(5)
-  end, opts)
-  km("n", "<leader>d", function()
-    require('cp').change_width(-5)
-  end, opts)
-  km("n", ",cp", function()
-    require('cp').change_buildsystem()
-  end, opts)
-  km("n", ",ec", function()
-    require('cp').edit_config()
-  end, opts)
+	local km = vim.keymap.set
+	km("n", ",tr", function()
+		require('cp').run()
+	end, opts)
+	km("n", ",ti", function()
+		require('cp').toggle_input()
+	end, opts)
+	km("n", ",to", function()
+		require('cp').toggle_output()
+	end, opts)
+	km("n", ",te", function()
+		require('cp').toggle_error()
+	end, opts)
+	km("n", ",fi", function()
+		require('cp').focus_input()
+	end, opts)
+	km("n", ",fo", function()
+		require('cp').focus_output()
+	end, opts)
+	km("n", ",fe", function()
+		require('cp').focus_error()
+	end, opts)
+	km("n", "<A-a>", function()
+		require('cp').hide_all()
+	end, opts)
+	km("n", "<A-t>", function()
+		require('cp').setup()
+	end, opts)
+	km("n", "<A-d>", function()
+		require('cp').destroy()
+	end, opts)
+	km("n", "<leader>i", function()
+		require('cp').change_width(5)
+	end, opts)
+	km("n", "<leader>d", function()
+		require('cp').change_width(-5)
+	end, opts)
+	km("n", ",cp", function()
+		require('cp').change_buildsystem()
+	end, opts)
+	km("n", ",ec", function()
+		require('cp').edit_config()
+	end, opts)
 end
 
 setup_cp()
 
 -- keymap to accept copilot suggestion
 vim.keymap.set("i", "<C-a>", function()
-  local copilot_keys = vim.fn["copilot#Accept"]()
-  if copilot_keys ~= "" then
-    vim.api.nvim_feedkeys(copilot_keys, "n", true)
-  else
-  end
+	local copilot_keys = vim.fn["copilot#Accept"]()
+	if copilot_keys ~= "" then
+		vim.api.nvim_feedkeys(copilot_keys, "n", true)
+	else
+	end
 end, opts)
 
 vim.keymap.set("v", "<leader>sc", ":Silicon<CR>", opts)
@@ -116,3 +116,12 @@ vim.keymap.set("v", "<leader>sc", ":Silicon<CR>", opts)
 -- Oil keymap
 keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 keymap("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open file tree" });
+
+-- Copywriter plugin
+vim.keymap.set("n", "<leader>l", function()
+		require("user.copywriter").license_picker()
+	end,
+	{
+		desc = "Opens copywrite telescope popup"
+	}
+);
