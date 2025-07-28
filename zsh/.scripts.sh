@@ -4,6 +4,7 @@ alias vim=nvim
 alias g=git
 alias gk=gk
 alias open=xdg-open
+alias ip="ip -c"
 # source /usr/share/bash-completion/completions/git
 # __git_complete g __git_main
 
@@ -41,20 +42,20 @@ activate_nvm() {
 # build_prompt() {
 #     local exitCode="$?"
 #     local prompt=''
-
+#
 #     prompt+="$(tput setaf $((exitCode == 0 ? 47 : 1)))"
-
+#
 #     prompt+='  '
 #     prompt+="$(tput bold; tput setaf 87)"
 #     prompt+='\W'
 #     prompt+="$(__git_branch)$(__git_status)"
 #     prompt+="$(tput sgr0)  "
-
+#
 #     PS1="$prompt"
 #     unset prompt
 #     unset exitCode
 # }
-
+#
 #__d_hist() {
 #    offset=0
 #    ids=$(history | grep -E "(\s|^)ls(\s|$)|(\s|^)clear(\s|$)|(\s|^)history(\s|$)"\
@@ -77,10 +78,6 @@ update_resume() {
 
 export ANDROID_HOME=$HOME/Android
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
-
-export FLUTTER_HOME=$HOME/apps/flutter
-export PATH="${PATH}:${FLUTTER_HOME}/bin"
-export PATH="${PATH}:$HOME/bin"
 
 export PATH="$PATH:$HOME/apps/go/bin"
 export GOPATH="$HOME/gopath"

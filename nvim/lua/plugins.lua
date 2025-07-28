@@ -200,17 +200,17 @@ require("lazy").setup({
       }
     }
   },
-  {
-    "pwntester/octo.nvim",
-    config = function()
-      require "octo".setup()
-      require "user.copywriter"
-    end,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "rcarriga/nvim-notify"
-    }
-  },
+  -- {
+  --   "pwntester/octo.nvim",
+  --   config = function()
+  --     require "octo".setup()
+  --     require "user.copywriter"
+  --   end,
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --     "rcarriga/nvim-notify"
+  --   }
+  -- },
   {
     'mrcjkb/rustaceanvim',
     config = function()
@@ -234,6 +234,7 @@ require("lazy").setup({
   {
     "nordtheme/vim",
     config = function()
+      vim.cmd[[colorscheme nord]]
     end
   },
   {
@@ -256,22 +257,22 @@ require("lazy").setup({
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
-  {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
-    config = function()
-      require("neogit").setup({
-        kind = "split", -- opens neogit in a split
-        signs = {
-          -- { CLOSED, OPENED }
-          section = { "", "" },
-          item = { "", "" },
-          hunk = { "", "" },
-        },
-        integrations = { diffview = true }, -- adds integration with diffview.nvim
-      })
-    end,
-  },
+  -- {
+  --   "TimUntersberger/neogit",
+  --   cmd = "Neogit",
+  --   config = function()
+  --     require("neogit").setup({
+  --       kind = "split", -- opens neogit in a split
+  --       signs = {
+  --         -- { CLOSED, OPENED }
+  --         section = { "", "" },
+  --         item = { "", "" },
+  --         hunk = { "", "" },
+  --       },
+  --       integrations = { diffview = true }, -- adds integration with diffview.nvim
+  --     })
+  --   end,
+  -- },
   {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
@@ -313,10 +314,10 @@ require("lazy").setup({
       require("user.dap")
     end
   },
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
-  },
+  -- {
+  --   'nvim-telescope/telescope-fzf-native.nvim',
+  --   build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+  -- },
   {
     "rcarriga/nvim-notify",
     config = function()
@@ -370,7 +371,7 @@ require("lazy").setup({
   {
     "Shatur/neovim-ayu",
     config = function ()
-      vim.cmd[[colorscheme gruvbox-baby]];
+      -- vim.cmd[[colorscheme gruvbox-baby]];
     end
   },
   {
