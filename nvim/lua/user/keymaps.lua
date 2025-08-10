@@ -114,8 +114,7 @@ end, opts)
 vim.keymap.set("v", "<leader>sc", ":Silicon<CR>", opts)
 
 -- Oil keymap
-keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-keymap("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open file tree" });
+keymap("n", "-", "<CMD>Tex<CR>", { desc = "Open parent directory" })
 
 -- Copywriter plugin
 vim.keymap.set("n", "<leader>l", function()

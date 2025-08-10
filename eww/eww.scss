@@ -1,0 +1,89 @@
+$bg: #181f21;
+$contrastbg: #22292b;
+$bgSecondary: #22292b;
+$bgSecondaryAlt: #988BA2;
+$fg: #dadada;
+$fgDim: #bdc3c2;
+$watermelon: #e06e6e;
+
+// Aliases
+$background: $bg;
+$backgroundSecondary: $bgSecondary;
+$backgroundSecondaryAlt: $bgSecondaryAlt;
+$foreground: $fg;
+$foregroundDim: $fgDim;
+
+$black: #22292b;
+$red: #e06e6e;
+$blue: #67b0e8;
+$cyan: #6da4cd;
+$blue-desaturated: #6da4cd;
+$magenta: #c47fd5;
+$green: #8ccf7e;
+$yellow: #e5c76b;
+$accent: $blue;
+$javacafeMagenta: #c47fd5;
+$javacafeBlue: #6da4cd;
+
+.workspaces {
+  padding: 2px 1px;
+  .workspace {
+    padding: 3px 8px;
+    color: $fg;
+    border-radius: 20%;
+
+    &.active {
+      background-color: $accent;
+    }
+
+    &.inactive {
+      background-color: $backgroundSecondary;
+    }
+  }
+}
+
+  .time {
+    color: $fg;
+  }
+
+.dock-bar {
+  background-color: $bg;
+}
+.cpu {
+  color: $blue;
+  background-color: $bg;
+  .cpu-icon {
+    font-family: "Fira Code Nerd Font Mono";
+    margin: 8px;
+    font-size: 25px;
+  }
+}
+
+.ram {
+  color: $red;
+  background-color: $bg;
+  .ram-icon {
+    font-family: "Fira Code Nerd Font Mono";
+    margin: 8px;
+    font-size: 25px;
+  }
+}
+* {
+    font-family: "Fira Code Nerd Font Mono";
+}
+
+.disk-mount {
+  color: $fg;
+  // margin: -10px;
+}
+
+.disks {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
+.revealer {
+  
+}

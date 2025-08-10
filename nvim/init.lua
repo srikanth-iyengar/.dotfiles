@@ -77,8 +77,8 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 
-vim.cmd[[
-  highlight EvenSpaceIndent ctermbg=235 guibg=#282828
-  match EvenSpaceIndent /^\(  \)\+/
-]]
+-- vim.cmd[[
+--   highlight EvenSpaceIndent ctermbg=235 guibg=#282828
+--   match EvenSpaceIndent /^\(  \)\+/
+-- ]]
 

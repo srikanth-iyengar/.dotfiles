@@ -150,7 +150,7 @@ require("lazy").setup({
   {
     'stevearc/oil.nvim',
     config = function()
-      require("user.oil-config")
+      -- require("user.oil-config")
     end,
     dependencies = {
       "nvim-tree/nvim-web-devicons"
@@ -358,7 +358,7 @@ require("lazy").setup({
   {
     'Mofiqul/dracula.nvim',
     opts = {},
-    config = function()
+  config = function()
       -- vim.cmd [[colorscheme dracula]]
     end
   },
@@ -411,5 +411,8 @@ require("lazy").setup({
         }
       })
     end
+  },
+  {
+    "rest-nvim/rest.nvim"
   }
 })
