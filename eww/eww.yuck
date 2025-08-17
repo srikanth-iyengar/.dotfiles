@@ -30,7 +30,7 @@
        :spacing 5
     (box :class {workspace == 1 ? "workspace active" : "workspace inactive"} "")
     (box :class {workspace == 2 ? "active workspace" : "inactive workspace"} "󰈹")
-    (box :class {workspace == 3 ? "active workspace" : "inactive workspace"} 3)
+    (box :class {workspace == 3 ? "active workspace" : "inactive workspace"} "")
     (box :class {workspace == 4 ? "active workspace" : "inactive workspace"} 4)
     (box :class {workspace == 5 ? "active workspace" : "inactive workspace"} 5)
     (box :class {workspace == 6 ? "active workspace" : "inactive workspace"} 6)

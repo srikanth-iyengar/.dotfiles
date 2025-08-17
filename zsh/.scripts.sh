@@ -67,15 +67,6 @@ activate_nvm() {
 #    done
 #}
 
-activate_android_tools() {
-    export ANDROID_SDK_ROOT=$HOME/Android
-    export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/emulator
-}
-
-update_resume() {
-    scp srikanth@latex.srikanthk.net:/home/srikanth/docs/resume/resume.pdf ~/Documents/Resume_Srikanth_Iyengar.pdf
-}
-
 export ANDROID_HOME=$HOME/Android
 export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
 

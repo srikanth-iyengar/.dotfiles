@@ -234,7 +234,7 @@ require("lazy").setup({
   {
     "nordtheme/vim",
     config = function()
-      vim.cmd[[colorscheme nord]]
+      -- vim.cmd[[colorscheme nord]]
     end
   },
   {
@@ -281,7 +281,7 @@ require("lazy").setup({
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
-      -- colorscheme("rose-pine")
+      colorscheme("rose-pine-moon")
     end
   },
   {
