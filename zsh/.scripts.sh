@@ -5,6 +5,7 @@ alias g=git
 alias gk=gk
 alias open=xdg-open
 alias ip="ip -c"
+alias tmux="tmux -u"
 # source /usr/share/bash-completion/completions/git
 # __git_complete g __git_main
 

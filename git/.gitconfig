@@ -29,6 +29,7 @@
 [core]
 	excludesfile = /home/srikanth/.dotfiles/git/.gitignore
 	editor = nvim
+	autocrlf = input
 [maintenance]
 	repo = /tmp/hi
 

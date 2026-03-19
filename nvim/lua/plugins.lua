@@ -142,12 +142,6 @@ require("lazy").setup({
     end
   },
   {
-    "Mofiqul/vscode.nvim",
-    config = function()
-      -- vim.cmd [[colorscheme vscode]]
-    end,
-  },
-  {
     'stevearc/oil.nvim',
     config = function()
       -- require("user.oil-config")
@@ -212,14 +206,6 @@ require("lazy").setup({
   --   }
   -- },
   {
-    'mrcjkb/rustaceanvim',
-    config = function()
-
-    end,
-    version = "^4",
-    lazy = false,
-  },
-  {
     'srikanth-iyengar/competitive-programming.nvim',
     lazy = true,
   },
@@ -230,12 +216,6 @@ require("lazy").setup({
     config = function()
       require("user.neorg")
     end,
-  },
-  {
-    "nordtheme/vim",
-    config = function()
-      -- vim.cmd[[colorscheme nord]]
-    end
   },
   {
     "zootedb0t/citruszest.nvim",
@@ -278,28 +258,9 @@ require("lazy").setup({
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function()
-      colorscheme("rose-pine-moon")
-    end
-  },
-  {
     "kaiuri/nvim-juliana",
     name = "sublime-theme",
     config = function()
-    end
-  },
-  {
-    "luisiacc/gruvbox-baby",
-    config = function()
-      -- colorscheme("gruvbox-baby")
-    end
-  },
-  {
-    "diegoulloao/neofusion.nvim",
-    config = function()
-      -- vim.cmd [[colorscheme neofusion]];
     end
   },
   {
@@ -356,22 +317,9 @@ require("lazy").setup({
     end
   },
   {
-    'Mofiqul/dracula.nvim',
-    opts = {},
-  config = function()
-      -- vim.cmd [[colorscheme dracula]]
-    end
-  },
-  {
     "theHamsta/nvim-dap-virtual-text",
     config = function()
       require("nvim-dap-virtual-text").setup()
-    end
-  },
-  {
-    "Shatur/neovim-ayu",
-    config = function ()
-      -- vim.cmd[[colorscheme gruvbox-baby]];
     end
   },
   {
@@ -412,7 +360,10 @@ require("lazy").setup({
       })
     end
   },
-  -- {
-  --   "rest-nvim/rest.nvim"
-  -- }
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {}
+  }
 })

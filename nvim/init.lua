@@ -81,4 +81,6 @@ vim.opt.softtabstop = 2
 --   highlight EvenSpaceIndent ctermbg=235 guibg=#282828
 --   match EvenSpaceIndent /^\(  \)\+/
 -- ]]
+--
 
+vim.cmd[[color tokyonight-moon]]

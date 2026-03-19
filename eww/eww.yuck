@@ -69,13 +69,6 @@
   )
 )
 
-(defwidget disk_mount [used avail mountpoint]
-  (box :class "disk-mount" :orientation "v" :halign "start" :spacing 2
-    (label :class "disk-usage"
-      :text {"(" + mountpoint + ": " + used + "|" + avail + ")  "})
-  )
-)
-
 ; Revealer on hover, using children
 (defwidget revealer-on-hover [revealvar revealvar-name ?class ?duration ?transition]
   (box
