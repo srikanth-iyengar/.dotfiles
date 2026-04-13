@@ -83,4 +83,4 @@ vim.opt.softtabstop = 2
 -- ]]
 --
 
-vim.cmd[[color tokyonight-moon]]
+-- vim.cmd[[color tokyonight-moon]]

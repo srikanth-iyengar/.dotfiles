@@ -364,6 +364,9 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {}
+    opts = {},
+    config = function ()
+      colorscheme("tokyonight-moon")
+    end
   }
 })
