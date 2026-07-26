@@ -2,7 +2,6 @@
 	email = git@srikanthk.in
 	name = Srikanth Iyengar
 [alias]
-# one-line log
 	l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 
 	a = add

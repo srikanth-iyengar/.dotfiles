@@ -85,3 +85,8 @@ export PATH="$PATH:$HOME/bin"
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/java/lombok.jar"
 export NDK_HOME="$HOME/apps/ndk"
 export PATH="$PATH:$HOME/vms"
+alias docker=podman
+
+eval "$(mise activate zsh)"
+eval "$(kubectl completion zsh)"
+eval "$(eww shell-completions --shell zsh)"
