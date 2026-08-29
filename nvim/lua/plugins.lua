@@ -1,5 +1,3 @@
-local colorscheme = require("user.colorscheme").transparent_background
-
 require("lazy").setup({
   "kyazdani42/nvim-web-devicons",
   {
@@ -17,29 +15,6 @@ require("lazy").setup({
     config = function()
       require("user.telescope")
     end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require 'nvim-treesitter.configs'.setup {
-        ensure_installed = { "c", "lua", "java", "cpp", "python", "bash", "awk", "sql", "rust" },
-        ignore_install = { "javascript" },
-        sync_install = false,
-        highlight = {
-          enable = true,
-          disable = function(lang, buf)
-            local max_filesize = 10000 * 1024 -- 10000 KB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-              return true
-            end
-          end,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true, disable = { 'ruby' } },
-      }
-    end
   },
   {
     "VonHeikemen/lsp-zero.nvim",
@@ -378,5 +353,10 @@ require("lazy").setup({
       }
       require('onedark').load()
     end
-  }
+  },
+	{
+		'nvim-treesitter/nvim-treesitter',
+		lazy = false,
+		build = ':TSUpdate'
+	}
 })

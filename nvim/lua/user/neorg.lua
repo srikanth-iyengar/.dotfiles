@@ -4,13 +4,13 @@ if not present then
 end
 
 -- Setup treesitter
-require('nvim-treesitter.configs').setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = { 'org' },
-	},
-	ensure_installed = {},
-})
+-- require('nvim-treesitter.configs').setup({
+-- 	highlight = {
+-- 		enable = true,
+-- 		additional_vim_regex_highlighting = { 'org' },
+-- 	},
+-- 	ensure_installed = {},
+-- })
 
 -- Setup orgmode
 orgmode.setup({
