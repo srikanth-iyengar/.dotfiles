@@ -6,6 +6,7 @@ alias gk=gk
 alias open=xdg-open
 alias ip="ip -c"
 alias tmux="tmux -u"
+alias k="kubectl"
 # source /usr/share/bash-completion/completions/git
 # __git_complete g __git_main
 
@@ -85,7 +86,7 @@ export PATH="$PATH:$HOME/bin"
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/java/lombok.jar"
 export NDK_HOME="$HOME/apps/ndk"
 export PATH="$PATH:$HOME/vms"
-alias docker=podman
+# alias docker=podman
 
 eval "$(mise activate zsh)"
 eval "$(kubectl completion zsh)"

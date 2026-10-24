@@ -77,10 +77,10 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 vim.opt.softtabstop = 2
 
--- vim.cmd[[
---   highlight EvenSpaceIndent ctermbg=235 guibg=#282828
---   match EvenSpaceIndent /^\(  \)\+/
--- ]]
---
-
 -- vim.cmd[[color tokyonight-moon]]
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
+})
+
+require("user.netrw")

@@ -26,11 +26,11 @@ map("n", "<A-O>", function()
     vim.cmd [[TSToolsOrganizeImports]]
   end
 end)
-map("n", "<leader>mi", function()
-  if vim.bo.filetype == 'typescript' or vim.bo.filetype == 'typescriptreact' then
-    vim.cmd [[TSToolsAddMissingImports]]
-  end
-end)
+-- map("n", "<leader>mi", function()
+--   if vim.bo.filetype == 'typescript' or vim.bo.filetype == 'typescriptreact' then
+--     vim.cmd [[TSToolsAddMissingImports]]
+--   end
+-- end)
 local function on_attach(client, bufnr)
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
   local ignoreFts = { "markdown", "java", "cpp", "c", "go", "rust" };

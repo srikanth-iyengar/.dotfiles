@@ -2,7 +2,7 @@ local dap = require("dap")
 local ui = require("dapui")
 
 vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint);
-vim.keymap.set("n", "<leader>gb", dap.run_to_cursor);
+-- vim.keymap.set("n", "<leader>gb", dap.run_to_cursor);
 
 -- Eval var under cursor
 vim.keymap.set("n", "<leader>?", function()
