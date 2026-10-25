@@ -56,30 +56,6 @@ require("lazy").setup({
   },
   "meuter/lualine-so-fancy.nvim",
   "tpope/vim-commentary",
-  -- {
-  -- 	"nvim-tree/nvim-tree.lua",
-  -- 	config = function()
-  -- 		require("nvim-tree").setup({
-  -- 			diagnostics = {
-  -- 				enable = true,
-  -- 				show_on_dirs = true,
-  -- 				show_on_open_dirs = true,
-  -- 				debounce_delay = 50,
-  -- 				severity = {
-  -- 					min = vim.diagnostic.severity.ERROR,
-  -- 					max = vim.diagnostic.severity.ERROR,
-  -- 				},
-  -- 				icons = {
-  -- 					hint = "",
-  -- 					info = "",
-  -- 					warning = "",
-  -- 					error = "",
-  -- 				},
-  -- 			},
-
-  -- 		})
-  -- 	end
-  -- },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
@@ -169,17 +145,6 @@ require("lazy").setup({
       }
     }
   },
-  -- {
-  --   "pwntester/octo.nvim",
-  --   config = function()
-  --     require "octo".setup()
-  --     require "user.copywriter"
-  --   end,
-  --   dependencies = {
-  --     "nvim-telescope/telescope.nvim",
-  --     "rcarriga/nvim-notify"
-  --   }
-  -- },
   {
     'srikanth-iyengar/competitive-programming.nvim',
     lazy = true,
@@ -206,28 +171,6 @@ require("lazy").setup({
     config = function()
     end
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  --   ft = { "markdown" },
-  --   build = function() vim.fn["mkdp#util#install"]() end,
-  -- },
-  -- {
-  --   "TimUntersberger/neogit",
-  --   cmd = "Neogit",
-  --   config = function()
-  --     require("neogit").setup({
-  --       kind = "split", -- opens neogit in a split
-  --       signs = {
-  --         -- { CLOSED, OPENED }
-  --         section = { "", "" },
-  --         item = { "", "" },
-  --         hunk = { "", "" },
-  --       },
-  --       integrations = { diffview = true }, -- adds integration with diffview.nvim
-  --     })
-  --   end,
-  -- },
   {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
@@ -297,53 +240,6 @@ require("lazy").setup({
       require("nvim-dap-virtual-text").setup()
     end
   },
-  {
-    'https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git',
-    -- Activate when a file is created/opened
-    event = { 'BufReadPre', 'BufNewFile' },
-    -- Activate when a supported filetype is open
-    ft = { 'go', 'javascript', 'python', 'ruby' },
-    cond = function()
-      -- Only activate if token is present in environment variable.
-      -- Remove this line to use the interactive workflow.
-      return vim.env.GITLAB_TOKEN ~= nil and vim.env.GITLAB_TOKEN ~= ''
-    end,
-    opts = {
-      statusline = {
-        -- Hook into the built-in statusline to indicate the status
-        -- of the GitLab Duo Code Suggestions integration
-        enabled = true,
-      },
-    },
-    config = function ()
-      require('gitlab').setup({
-        statusline = {
-          enabled = false
-        },
-        code_suggestions = {
-          -- For the full list of default languages, see the 'auto_filetypes' array in
-          -- https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/lua/gitlab/config/defaults.lua
-          auto_filetypes = { 'ruby', 'javascript' }, -- Default is { 'ruby' }
-          ghost_text = {
-            enabled = false, -- ghost text is an experimental feature
-            toggle_enabled = "<C-h>",
-            accept_suggestion = "<C-l>",
-            clear_suggestions = "<C-k>",
-            stream = true,
-          },
-        }
-      })
-    end
-  },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {},
-  --   config = function ()
-  --     colorscheme("tokyonight-moon")
-  --   end
-  -- },
   {
     "navarasu/onedark.nvim",
     priority = 1000, -- make sure to load this before all the other start plugins
