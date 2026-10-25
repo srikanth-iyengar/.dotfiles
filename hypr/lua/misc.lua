@@ -1,0 +1,16 @@
+hl.config({
+	master = {
+		new_status = "master"
+	}
+})
+hl.config({
+	misc = {
+		force_default_wallpaper = -1,
+		disable_hyprland_logo = true
+	}
+})
+hl.config({
+	animations = {
+		enabled = false
+	}
+})
